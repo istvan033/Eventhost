@@ -9,8 +9,12 @@
 	  "skipLibCheck": true,
 	  "sourceMap": true,
 	  "strict": true,
+	  "paths": {
+		"@/*": ["./src/*"]
+	  },  
 	  // TODO: re-enable it once EdgeDB generated bindings are fixed
 	  "isolatedModules": false
+	  
 	},
 	"exclude": ["./src/edgeql-js"]
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
