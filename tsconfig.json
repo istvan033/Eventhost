@@ -10,7 +10,10 @@
 	  "sourceMap": true,
 	  "strict": true,
 	  "paths": {
-		"@/*": ["./src/*"]
+		"@/*": ["./src/*"],
+		"$lib": ["./src/lib"],
+		"$lib/*": ["./src/lib/*"]
+  
 	  },  
 	  // TODO: re-enable it once EdgeDB generated bindings are fixed
 	  "isolatedModules": false
