@@ -1,15 +1,16 @@
-<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
-
-<div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5">
-		<h1 class="h1">Let's get cracking bones!</h1>
-		<p>Start by exploring:</p>
-		<ul>
-			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout</li>
-			<li><code class="code">/src/app.postcss</code> - app wide css</li>
-			<li>
-				<code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents
-			</li>
-		</ul>
+<body data-theme="rocket">
+	<div class="card">
+		<header class="card-header">
+			<img src="/src/image/img1.png" class="bg-black/50 w-full aspect-[21/9]" alt="img1"/>
+		</header>
+		<section class="p-4">
+			ISTVAN EGY BIMBIMBABMBIMBUM
+		</section>
+		<footer class="card-footer">
+			ISTVAN EGY KAKALAKASAKAMAKA
+		</footer>
 	</div>
-</div>
+</body>
+<script lang="ts">
+	let img1='$lib/pics/img1.png'
+</script>
