@@ -9,20 +9,16 @@ const schema = z
   .object({
     // HasAddress
     country: z.string().min(2).max(2),
-    zipCode: z.string(),
-    city: z.string(),
-    address: z.string(),
-    addressDetail: z.string(),
+    zipCode: z.string().min(4),
+    city: z.string().min(1),
+    address: z.string().min(1),
+    addressDetail: z.string().min(1),
 
-    // HasTimestamps
-    createdAt: z.date(),
-    updatedAt: z.date(),
-
-    title: z.string(),
-    description: z.string(),
+    title: z.string().min(1),
+    description: z.string().min(1),
     startsAt: z.date(),
     endsAt: z.date(),
-    placeName: z.string().nonempty(),
+    placeName: z.string().min(1),
   })
   .refine(data => data.startsAt < data.endsAt, {
     message: 'Event start date must be before end date.',
