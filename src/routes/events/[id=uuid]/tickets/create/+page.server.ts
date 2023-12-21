@@ -4,26 +4,22 @@ import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
+import { randomBytes } from 'crypto';
 
-const schema = z
-  .object({
-    // HasAddress
-    country: z.string().min(2).max(2),
-    zipCode: z.string().min(4),
-    city: z.string().min(1),
-    address: z.string().min(1),
-    addressDetail: z.string().min(1),
+const schema = z.object({
+  firstName: z.string().nonempty(),
+  lastName: z.string().nonempty(),
 
-    title: z.string().min(1),
-    description: z.string().min(1),
-    startsAt: z.date(),
-    endsAt: z.date(),
-    placeName: z.string().min(1),
-  })
-  .refine(data => data.startsAt < data.endsAt, {
-    message: 'Event start date must be before end date.',
-    path: ['startsAt'],
-  });
+  email: z.string().email(),
+  phone: z.string().nonempty(),
+
+  inviteCode: z.string().nonempty(),
+  note: z.string().optional(),
+  organizationName: z.string().optional(),
+
+  gdprAccepted: z.boolean(),
+  newsletterSubscribed: z.boolean(),
+});
 
 export const load = (async () => {
   const form = superValidate(schema);
@@ -38,10 +34,13 @@ export const actions = {
       return fail(400, { form });
     }
 
+    // TODO: validate inviteCode
+
     await e
-      .insert(e.Event, {
+      .insert(e.Ticket, {
+        token: randomBytes(128).toString('base64').slice(0, 128),
         ...form.data,
-        organizer: e.select(e.Organizer, () => ({
+        event: e.select(e.Event, () => ({
           filter_single: { id: e.uuid(params.id) },
         })),
       })
