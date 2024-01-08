@@ -14,4 +14,3 @@
         <p class="text-center mb-4 text-3xl mt-0">EZ EGY TICKETS OLDAL</p>
 
     </div>
-  </div>
