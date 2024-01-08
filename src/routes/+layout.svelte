@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, TabGroup, TabAnchor } from '@skeletonlabs/skeleton';
 
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
@@ -9,6 +9,10 @@
 	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
 	let currentTile: number = 0;
 	import { LightSwitch } from '@skeletonlabs/skeleton';
+	import { page } from '$app/stores';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 <!-- App Shell -->
 <body data-theme="rocket">
@@ -21,19 +25,19 @@
 			</AppBar>
 		</svelte:fragment>
 		<svelte:fragment slot="sidebarLeft">
-			<AppRail>
-				<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1">
+			<AppRail background="bg-surface-50-900-token">
+				<AppRailAnchor href="/" title="Menu" selected={$page.url.pathname === '/'}>
 					<svelte:fragment slot="lead"></svelte:fragment>
-					<span class="text-xl">Main Page</span>
-				</AppRailTile>
-				<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="tile-2">
+					<p class="text-lg font-medium">Menu</p>
+				</AppRailAnchor>
+				<AppRailAnchor href="/events" title="Events" selected={$page.url.pathname === '/events'}>
 					<svelte:fragment slot="lead"></svelte:fragment>
-					<span class="text-xl">Events</span>
-				</AppRailTile>
-				<AppRailTile bind:group={currentTile} name="tile-3" value={2} title="tile-3">
+					<p class="text-lg font-medium">Events</p>
+				</AppRailAnchor>
+				<AppRailAnchor href="/tickets" title="Tickets" selected={$page.url.pathname === '/tickets'}>
 					<svelte:fragment slot="lead"></svelte:fragment>
-					<span class="text-xl">My Tickets</span>
-				</AppRailTile>
+					<p class="text-lg font-medium">Tickets</p>
+				</AppRailAnchor>
 			</AppRail>
 		</svelte:fragment>
 		<slot />
