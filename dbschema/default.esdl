@@ -38,6 +38,7 @@ module default {
   type Event extending HasAddress, HasTimestamps {
     title: str;
     required link organizer: Organizer;
+
     description: str;
 
     # Images
@@ -76,8 +77,10 @@ module default {
 
     organizationName: str;
 
-    required gdprAccepted: bool;
-    required newsletterSubscribed: bool;
+    gdprAccepted: bool;
+    newsletterSubscribed: bool;
+
+    link events := .<tickets[is Event];
 
     #avatar_filename: str;
   }
@@ -92,10 +95,10 @@ module default {
 
   type Organizer extending HasAddress, HasTimestamps {
     required name: str;
-    required taxNumber: str;
-    required euTaxNumber: str;
+    taxNumber: str;
+    euTaxNumber: str;
     required phone: str;
-    required website: str;
+    website: str;
     required email: str;
 
     # Socials

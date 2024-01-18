@@ -15,7 +15,7 @@
 	export let data: PageData;
 </script>
 <!-- App Shell -->
-<body data-theme="rocket">
+<body data-theme="wintry">
 	<AppShell>
 		<svelte:fragment slot="header">
 			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">

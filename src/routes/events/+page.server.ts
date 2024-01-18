@@ -8,7 +8,7 @@ export const load = (async () => {
       .select(e.Event, () => ({
         id: true,
         title: true,
-
+        placeName: true,
         startsAt: true,
         endsAt: true,
 
