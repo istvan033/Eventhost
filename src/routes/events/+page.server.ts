@@ -4,7 +4,7 @@ import { client } from '$lib/server/edgedb';
 
 export const load = (async () => {
   return {
-    events: await e
+    event: await e
       .select(e.Event, () => ({
         id: true,
         title: true,

@@ -30,7 +30,7 @@ export const actions = {
     const form = await superValidate(request, schema);
 
     if (!form.valid) {
-      return fail(400, { form });
+      return fail(404, { form });
     }
 
     await e
@@ -39,6 +39,7 @@ export const actions = {
         event: e.select(e.Event, () => ({
           filter_single: { id: e.uuid(params.id) },
         })),
+        token: '',
       })
       .run(client);
 

@@ -13,7 +13,7 @@
       <span class="block text-lg font-bold">Starts At:</span>
     </div>
     <ul>
-      {#each data.events as event}
+      {#each data.event as event}
       <tbody>
         <a href="/events/{event.id}">    
           <li

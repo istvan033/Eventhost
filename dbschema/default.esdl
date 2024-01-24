@@ -38,12 +38,7 @@ module default {
   type Event extending HasAddress, HasTimestamps {
     title: str;
     required link organizer: Organizer;
-
     description: str;
-
-    # Images
-    #cover_filename: str;
-    #ticket_image_filename: str;
 
     startsAt: datetime;
     endsAt: datetime;
@@ -52,8 +47,10 @@ module default {
     # Location
     required placeName: str;
 
-    multi link tickets: Ticket {
-      constraint exclusive;
+    multi link tickets := .<event[is Ticket];
+
+    required ordinalNumberCounter: int64 {
+      default := 0;
     };
   }
 
@@ -72,7 +69,7 @@ module default {
     required email: str;
     required phone: str;
 
-    required inviteCode: str;
+    inviteCode: str;
     note: str;
 
     organizationName: str;
@@ -80,7 +77,9 @@ module default {
     gdprAccepted: bool;
     newsletterSubscribed: bool;
 
-    link events := .<tickets[is Event];
+    required link event: Event {
+      readonly := true;
+    };
 
     #avatar_filename: str;
   }
@@ -113,6 +112,6 @@ module default {
 
     multi link users: User;
 
-    link events := .<organizer[is Event];
+    link event := .<organizer[is Event];
   }
 }
