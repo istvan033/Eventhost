@@ -38,7 +38,12 @@ module default {
   type Event extending HasAddress, HasTimestamps {
     title: str;
     required link organizer: Organizer;
+
     description: str;
+
+    # Images
+    #cover_filename: str;
+    #ticket_image_filename: str;
 
     startsAt: datetime;
     endsAt: datetime;
@@ -49,13 +54,15 @@ module default {
 
     multi link tickets := .<event[is Ticket];
 
-    required ordinalNumberCounter: int64 {
-      default := 0;
-    };
   }
 
   type Ticket extending HasTimestamps {
-    required token: str;
+
+    required token: str {
+      constraint exclusive;
+    };
+
+    required fullName: str;
 
     badgeToken: str;
     badgeReceivedAt: datetime;
@@ -69,7 +76,7 @@ module default {
     required email: str;
     required phone: str;
 
-    inviteCode: str;
+    required inviteCode: str;
     note: str;
 
     organizationName: str;
@@ -77,19 +84,17 @@ module default {
     gdprAccepted: bool;
     newsletterSubscribed: bool;
 
-    required link event: Event {
-      readonly := true;
-    };
+    required link event: Event;
 
     #avatar_filename: str;
   }
 
   type Scan extending HasTimestamps {
-    required link user: User;
+    required link users: User;
   }
 
   type LinkOpen extending HasTimestamps {
-    required link ticket: Ticket;
+    required link tickets: Ticket;
   }
 
   type Organizer extending HasAddress, HasTimestamps {

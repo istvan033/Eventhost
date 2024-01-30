@@ -31,12 +31,4 @@
       {/each}
     </ul>
   </div>
-  <a href="/events/create">
-    <span class="card mt-96 px-8 py-4">Create Event</span>
-  </a>
 </body>
-
-  <!--
-    TODO: FIX BUTTON
-  -->
- 
