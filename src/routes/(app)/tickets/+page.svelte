@@ -9,7 +9,7 @@
     
     <div class="overflow-hidden">
 
-      <img src="/src/routes/tickets/huh_cat.jpg" class="max-h-60 w-full rounded-t-3xl" alt="kep"/>
+      <img src="/src/routes/(app)/tickets/huh_cat.jpg" class="max-h-60 w-full rounded-t-3xl" alt="kep"/>
 
     </div>
     

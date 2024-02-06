@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '../app.postcss';
-	import { AppShell, AppBar, TabGroup, TabAnchor } from '@skeletonlabs/skeleton';
+	import '/src/app.postcss';
+	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
