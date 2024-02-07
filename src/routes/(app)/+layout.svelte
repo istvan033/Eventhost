@@ -12,6 +12,8 @@
 	import { page } from '$app/stores';
 	import type { PageData } from './$types';
 
+	import { signIn, signOut } from '@auth/sveltekit/client'
+
 	export let data: PageData;
 </script>
 <!-- App Shell -->
@@ -20,7 +22,16 @@
 		<svelte:fragment slot="header">
 			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 				<span class="h1" slot="lead">Eventhost</span>
-				<svelte:fragment slot="trail"><LightSwitch /></svelte:fragment>
+				<svelte:fragment slot="trail">
+					{#if $page.data.session?.user}
+						<p>Signed in as {$page.data.session.user.email}</p>
+						<button on:click={signOut}>Sign out</button>
+					{:else}
+						<p>Not signed in.</p>
+						<button on:click={() => signIn('google')}>Sign in</button>
+					{/if}
+					<LightSwitch />
+				</svelte:fragment>
 				
 			</AppBar>
 		</svelte:fragment>

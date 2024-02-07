@@ -1,5 +1,7 @@
 <script lang="ts">
     import type { PageData } from './$types';
+
+    
     
     export let data: PageData;
   </script>
@@ -16,6 +18,8 @@
     <div class="p-10 max-w-sm mx-auto justify-center">
   
       <p class="text-center mb-4 text-3xl mt-0">EZ EGY MAIN MENU OLDAL</p>
+
+      
 
     </div>
 
