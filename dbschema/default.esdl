@@ -104,6 +104,7 @@ module default {
     required phone: str;
     website: str;
     required email: str;
+    required employeeEmail: str;
 
     # Socials
     facebook: str;
@@ -114,8 +115,6 @@ module default {
     tiktok: str;
 
     #logo_filename: str;
-
-    multi link users: User;
 
     link event := .<organizer[is Event];
   }
