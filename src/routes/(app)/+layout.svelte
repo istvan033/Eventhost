@@ -6,8 +6,7 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
-	let currentTile: number = 0;
+	import { AppRail, AppRailAnchor } from '@skeletonlabs/skeleton';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
 	import type { PageData } from './$types';
