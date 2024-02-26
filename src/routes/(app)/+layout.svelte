@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '/src/app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-
+	
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
@@ -47,6 +47,10 @@
 				<AppRailAnchor href="/tickets" title="Tickets" selected={$page.url.pathname === '/tickets'}>
 					<svelte:fragment slot="lead"></svelte:fragment>
 					<p class="text-lg font-medium">Tickets</p>
+				</AppRailAnchor>
+				<AppRailAnchor href="/aboutus" title="About us" selected={$page.url.pathname === '/aboutus'}>
+					<svelte:fragment slot="lead"></svelte:fragment>
+					<p class="text-lg font-medium">About us </p>
 				</AppRailAnchor>
 			</AppRail>
 		</svelte:fragment>
