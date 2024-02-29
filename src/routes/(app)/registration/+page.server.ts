@@ -6,6 +6,7 @@ import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
 import { z } from 'zod';
 
+
 const schema = z
   .object({
     // HasAddress
@@ -20,6 +21,7 @@ const schema = z
 export const load = (async () => {
   const form = superValidate(schema);
   return { form };
+  
 }) satisfies PageServerLoad;
 
 export const actions = {

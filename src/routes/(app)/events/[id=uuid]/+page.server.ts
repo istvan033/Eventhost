@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from './$types';
-import { error, fail } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import e from '@/edgeql-js';
 import { client } from '$lib/server/edgedb';
 import { z } from 'zod';

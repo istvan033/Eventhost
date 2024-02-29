@@ -13,6 +13,7 @@
 
 	import { signIn, signOut } from '@auth/sveltekit/client'
 
+
 	export let data: PageData;
 </script>
 <!-- App Shell -->

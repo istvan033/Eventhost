@@ -27,7 +27,9 @@ module default {
     required firstName: str;
     required lastName: str;
 
-    required email: str;
+    required email: str{
+      constraint exclusive;
+    };
     required phone: str;
 
     required passwordHash: str;
