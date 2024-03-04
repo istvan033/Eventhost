@@ -20,7 +20,6 @@
             class=" bg-surface-50-900-token px-8 py-4 w-wide mx-8 flex my-1 rounded-3xl border-2 border-surface-900"
           >
             <span class="block w-48 mr-48">{event.title}</span>
-            <span class="block w-48 mr-48">{event.organizer.name}</span>
             <span class="block w-48 mr-48">{event.placeName}</span>
             <span class="block">{event.startsAt}</span>
           </li>         

@@ -19,8 +19,7 @@ export const load = (async ({ locals }: RequestEvent) => {
           placeName: true,
           startsAt: true,
           endsAt: true,
-  
-          organizer: { name: true },
+          organizer: {firstName: true, lastName: true},
         }))
         .run(client),
     };

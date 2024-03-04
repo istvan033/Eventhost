@@ -45,16 +45,6 @@
                 bind:value={$form.lastName}
               />
             </label>
-  
-            <label class="label mb-4 col-span-6" for="passwordHash"
-              >passwordHash
-              <input
-                class="input"
-                type="text"
-                name="passwordHash"
-                bind:value={$form.passwordHash}
-              />
-            </label>
           </div>
   
           <label class="label mb-4" for="phone"

@@ -13,7 +13,6 @@ const schema = z
     email: z.string(),
     firstName: z.string(),
     lastName: z.string(),
-    passwordHash: z.string(),
     phone: z.string(),
 
   });
