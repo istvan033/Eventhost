@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import e from '@/edgeql-js';
 import { client } from '$lib/server/edgedb';
-import { json, error, redirect } from "@sveltejs/kit"
+import { redirect } from "@sveltejs/kit"
 import type { RequestEvent } from "./$types"
 
 

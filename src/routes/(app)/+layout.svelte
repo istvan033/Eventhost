@@ -1,8 +1,6 @@
 <script lang="ts">
 	import '/src/app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-
-	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
@@ -10,9 +8,7 @@
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
 	import type { PageData } from './$types';
-
-	import { signIn, signOut } from '@auth/sveltekit/client'
-
+	import { signIn, signOut } from '@auth/sveltekit/client';
 
 	export let data: PageData;
 </script>

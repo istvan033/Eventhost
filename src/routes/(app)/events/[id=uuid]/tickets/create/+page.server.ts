@@ -1,4 +1,4 @@
-import type { PageServerLoad, Actions, PageData } from './$types';
+import type { PageServerLoad, Actions } from './$types';
 import { fail, error, redirect } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
