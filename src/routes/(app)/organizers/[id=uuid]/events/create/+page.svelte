@@ -1,10 +1,17 @@
 <script lang="ts">
-  import type { PageData } from './$types';
+  import type { PageData, RequestEvent } from './$types';
   import { superForm } from 'sveltekit-superforms/client';
 
   export let data: PageData;
 
   const { form, enhance } = superForm(data.form);
+
+
+  let sessionEmail = data.session?.user?.email;
+  let result: string = sessionEmail as string;
+  let afterAt = result.split('@')[1];
+  
+  
 </script>
 
 <body data-theme="wintry">
@@ -111,6 +118,13 @@
               type="date"
               name="endsAt"
               bind:value={$form.endsAt}
+            />
+
+            <input
+              class="input hidden"
+              type="text"
+              name="emailValidation"
+              bind:value={afterAt}
             />
           </label>
         </div>

@@ -1,24 +1,49 @@
-CREATE MIGRATION m1osbs3st2ow5yrbefb75j4jy7powlchsearworxbkrw7km4igeryq
-    ONTO m1j5eh5p5umq36ry66t2rsoil7dde5uvjjfnlfacur4iz537cjee3a
+CREATE MIGRATION m12cpoyumav7enegbws63wowrqpow4b6vd4thi6aw3x7jd7whikkna
+    ONTO m16wlzxooxffpaayva2ukvlfbqtgdigaksebfb3gnoadtpij3fdkra
 {
-  ALTER TYPE default::Organizer {
-      ALTER PROPERTY euTaxNumber {
-          RESET OPTIONALITY;
+  ALTER TYPE default::User {
+      CREATE PROPERTY address: std::str {
+          SET REQUIRED USING (<std::str>{});
       };
-      ALTER PROPERTY taxNumber {
-          RESET OPTIONALITY;
+      CREATE PROPERTY addressDetail: std::str {
+          SET REQUIRED USING (<std::str>{});
       };
-      ALTER PROPERTY website {
-          RESET OPTIONALITY;
+      CREATE PROPERTY city: std::str {
+          SET REQUIRED USING (<std::str>{});
       };
+      CREATE PROPERTY country: std::str {
+          SET REQUIRED USING (<std::str>{});
+      };
+      CREATE PROPERTY zipCode: std::str {
+          SET REQUIRED USING (<std::str>{});
+      };
+      EXTENDING default::HasAddress BEFORE default::HasTimestamps;
   };
-  ALTER TYPE default::Ticket {
-      CREATE LINK events := (.<tickets[IS default::Event]);
-      ALTER PROPERTY gdprAccepted {
+  ALTER TYPE default::User {
+      ALTER PROPERTY address {
           RESET OPTIONALITY;
+          DROP OWNED;
+          RESET TYPE;
       };
-      ALTER PROPERTY newsletterSubscribed {
+      ALTER PROPERTY addressDetail {
           RESET OPTIONALITY;
+          DROP OWNED;
+          RESET TYPE;
+      };
+      ALTER PROPERTY city {
+          RESET OPTIONALITY;
+          DROP OWNED;
+          RESET TYPE;
+      };
+      ALTER PROPERTY country {
+          RESET OPTIONALITY;
+          DROP OWNED;
+          RESET TYPE;
+      };
+      ALTER PROPERTY zipCode {
+          RESET OPTIONALITY;
+          DROP OWNED;
+          RESET TYPE;
       };
   };
 };

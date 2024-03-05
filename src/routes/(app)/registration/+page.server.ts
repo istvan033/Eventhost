@@ -9,11 +9,18 @@ import { z } from 'zod';
 
 const schema = z
   .object({
-    // HasAddress
+    address: z.string(),
+    addressDetail: z.string(),
+    city: z.string(),
+    country: z.string(),
+    zipCode: z.string(),
+
     email: z.string(),
     firstName: z.string(),
     lastName: z.string(),
     phone: z.string(),
+
+    organizerCode: z.string(),
 
   });
 
@@ -24,19 +31,24 @@ export const load = (async () => {
 }) satisfies PageServerLoad;
 
 export const actions = {
-  default: async ({ request, params }) => {
+  default: async ({ request }) => {
     const form = await superValidate(request, schema);
+    const companies = e.select(e.Company, () => ({
+      organizerCode: true,
+    }))
+    .run(client);
 
-    if (!form.valid) {
-      return fail(400, { form });
-    }
+    let number1 = form.data.organizerCode;
+    const proba = (await companies).find(companies => companies.organizerCode == number1);
 
-    await e
-      .insert(e.User, {
-        ...form.data
+    if (form.valid && proba) {
+      await e
+      .insert(e.Organizer, {
+        ...form.data,
       })
       .run(client);
-
     return { form };
+    }
+    return fail(400, { form });
   },
 } satisfies Actions;

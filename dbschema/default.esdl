@@ -18,7 +18,7 @@ module default {
     };
   };
 
-  type User extending HasTimestamps {
+  type User extending HasAddress, HasTimestamps {
     required firstName: str;
     required lastName: str;
     required email: str{
@@ -30,6 +30,7 @@ module default {
   type Event extending HasAddress, HasTimestamps {
     required title: str;
     required placeName: str;
+    required emailValidation: str;
     description: str;
     startsAt: datetime;
     endsAt: datetime;
@@ -52,6 +53,7 @@ module default {
     required name: str;
     required companyEmail: str;
     required euTaxNumber: str;
+    required organizerCode: str;
     website: str;
     description: str;
     facebook: str;

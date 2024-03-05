@@ -1,10 +1,9 @@
-CREATE MIGRATION m1zrfuavw3t33djp5dsc3yr3bny6jdelcm7bhkjxblksk2boscd6qa
-    ONTO m1osbs3st2ow5yrbefb75j4jy7powlchsearworxbkrw7km4igeryq
+CREATE MIGRATION m1cjedl7x65qigodomebndfm55tpdo7aatsll5t356v2o4l52ntzka
+    ONTO m12cpoyumav7enegbws63wowrqpow4b6vd4thi6aw3x7jd7whikkna
 {
-  ALTER TYPE default::Ticket {
-      DROP LINK events;
-      ALTER PROPERTY inviteCode {
-          RESET OPTIONALITY;
+  ALTER TYPE default::Company {
+      CREATE REQUIRED PROPERTY organizerCode: std::str {
+          SET REQUIRED USING (<std::str>{});
       };
   };
 };

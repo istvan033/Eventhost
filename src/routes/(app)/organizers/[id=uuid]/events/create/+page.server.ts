@@ -19,13 +19,15 @@ const schema = z
     startsAt: z.date(),
     endsAt: z.date(),
     placeName: z.string().min(1),
+    emailValidation: z.string().min(1),
   })
   .refine(data => data.startsAt < data.endsAt, {
     message: 'Event start date must be before end date.',
     path: ['startsAt'],
   });
 
-export const load = (async () => {
+export const load = (async ({locals}) => {
+  const session = await locals.auth()
   const form = superValidate(schema);
   return { form };
 }) satisfies PageServerLoad;

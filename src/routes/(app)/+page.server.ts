@@ -10,15 +10,24 @@ export const load = (async ({locals}: RequestEvent) => {
     email: true,
   }))
   .run(client);
+  const searchUserEmail = session?.user?.email;
+  const foundUserEmail = (await user).find(user => user.email == searchUserEmail);
 
-  const searchEmail = session?.user?.email;
-  const foundEmail = (await user).find(user => user.email == searchEmail);
+  const organizer = e.select(e.Organizer, () => ({
+    email: true,
+  }))
+  .run(client);
+  const searchOrganizerEmail = session?.user?.email;
+  const foundOrganizerEmail = (await organizer).find(organizer => organizer.email == searchOrganizerEmail);
 
-  if (session?.user && !foundEmail) {
+  const emailFound = foundUserEmail || foundOrganizerEmail
+
+  if (session?.user && !emailFound) {
     throw redirect(307, "/registration")
   }
 
   return { 
-    user
+    user,
+    organizer
   };
 }) satisfies PageServerLoad;
