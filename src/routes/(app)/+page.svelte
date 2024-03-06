@@ -53,10 +53,9 @@
       </div>
     </nav>
   </header>
-  
   <div class="sticky top-0 h-screen snap-start">
     <div class="absolute inset-0 bg-cover bg-center filter bg-[url('https://4kwallpapers.com/images/wallpapers/ocean-waves-aerial-view-blue-water-pattern-sea-waves-5k-2560x1080-4605.jpg')]" ></div>
-    <section class="flex items-center justify-center min-h-screen w-screen backdrop-blur-md">
+    <section class="flex items-center justify-center min-h-screen w-screen backdrop-blur">
       <div class="text-center max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 relative z-10 ">
         <div class="mr-auto place-self-center lg:col-span-7">
           <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-8xl dark:text-white ">Eventhost</h1>
