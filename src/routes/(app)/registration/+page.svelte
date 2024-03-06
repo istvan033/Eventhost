@@ -5,7 +5,7 @@
   
     export let data: PageData;
 
-    const { form, enhance } = superForm(data.form, data.organizerForm);
+    const { form, enhance } = superForm(data.form);
   </script>
   
   <body data-theme="wintry">

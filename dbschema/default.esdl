@@ -25,6 +25,7 @@ module default {
       constraint exclusive;
     };
     required phone: str;
+    organizerCode: str;
   }
 
   type Event extending HasAddress, HasTimestamps {
@@ -46,6 +47,7 @@ module default {
       constraint exclusive;
     };
     required phone: str;
+    required organizerCode: str;
     link event := .<organizer[is Event];
   }
 

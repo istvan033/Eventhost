@@ -6,7 +6,6 @@ import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
 import { z } from 'zod';
 
-
 const schema = z
   .object({
     address: z.string(),
@@ -27,7 +26,6 @@ const schema = z
 export const load = (async () => {
   const form = superValidate(schema);
   return { form };
-  
 }) satisfies PageServerLoad;
 
 export const actions = {
@@ -41,14 +39,23 @@ export const actions = {
     let number1 = form.data.organizerCode;
     const proba = (await companies).find(companies => companies.organizerCode == number1);
 
-    if (form.valid && proba) {
+    if (!form.valid) {
+      return fail(400, { form });
+    } else if (form.valid && proba) {
       await e
-      .insert(e.Organizer, {
-        ...form.data,
-      })
-      .run(client);
-    return { form };
+        .insert(e.Organizer, {
+          ...form.data,
+        })
+        .run(client);
+      return { form };
+    } else if (form.valid && !proba) {
+      await e
+        .insert(e.User, {
+          ...form.data,
+        })
+        .run(client);
+      return { form };
     }
-    return fail(400, { form });
+    
   },
 } satisfies Actions;
