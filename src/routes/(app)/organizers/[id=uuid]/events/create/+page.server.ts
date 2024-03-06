@@ -8,7 +8,7 @@ import { client } from '@/services/edgedb';
 const schema = z
   .object({
     // HasAddress
-    country: z.string().min(2).max(2),
+    country: z.string().min(2),
     zipCode: z.string().min(4),
     city: z.string().min(1),
     address: z.string().min(1),

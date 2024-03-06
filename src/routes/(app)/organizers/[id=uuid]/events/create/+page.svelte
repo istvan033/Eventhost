@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageData, RequestEvent } from './$types';
+  import type { PageData } from './$types';
   import { superForm } from 'sveltekit-superforms/client';
 
   export let data: PageData;

@@ -36,19 +36,19 @@ export const actions = {
     }))
     .run(client);
 
-    let number1 = form.data.organizerCode;
-    const proba = (await companies).find(companies => companies.organizerCode == number1);
+    let organizerCodeData = form.data.organizerCode;
+    const codeMatched = (await companies).find(companies => companies.organizerCode == organizerCodeData);
 
     if (!form.valid) {
       return fail(400, { form });
-    } else if (form.valid && proba) {
+    } else if (form.valid && codeMatched) {
       await e
         .insert(e.Organizer, {
           ...form.data,
         })
         .run(client);
       return { form };
-    } else if (form.valid && !proba) {
+    } else if (form.valid && !codeMatched) {
       await e
         .insert(e.User, {
           ...form.data,
