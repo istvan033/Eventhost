@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { page } from '$app/stores';
-  import { signIn, signOut } from '@auth/sveltekit/client';
+  import { signIn, signOut } from "@auth/sveltekit/client";
 
   export let data: PageData;
 
@@ -12,6 +12,7 @@
 </script>
 <body data-theme="wintry" class="scroll-smooth">
 <div class="relative overflow-y-auto snap-mandatory snap-y  h-screen">
+
   <header class=" top-0 w-full z-50 snap-start">
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
       <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -53,6 +54,7 @@
       </div>
     </nav>
   </header>
+
   <div class="sticky top-0 h-screen snap-start">
     <div class="absolute inset-0 bg-cover bg-center filter bg-[url('https://4kwallpapers.com/images/wallpapers/ocean-waves-aerial-view-blue-water-pattern-sea-waves-5k-2560x1080-4605.jpg')]" ></div>
     <section class="flex items-center justify-center min-h-screen w-screen backdrop-blur">
@@ -79,12 +81,9 @@
         </div>
       </div>
     </section>
-
-
   </div>
 
   <div class="sticky top-0 h-screen flex flex-col items-center justify-center snap-center backdrop-blur">
-
     <section class="flex items-center justify-center min-h-screen w-screen bg-white dark:bg-gray-900">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
         <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
@@ -144,11 +143,54 @@
   </div>
 
   <div class="sticky top-0 h-screen flex flex-col items-center justify-center snap-center backdrop-blur">
+    <div class="flex items-center justify-center min-h-screen bg-blueGray-50">
+      <section class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+        <div class="absolute top-0 w-full h-full bg-center bg-cover"></div>
+        <div class="container">
+          <div class="items-center">
+            <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <div class="pr-12">
+                <h1 class="text-white font-semibold text-5xl">
+                  Your story starts with us.
+                </h1>
+                <p class="mt-4 text-lg text-blueGray-200">
+                  This is a simple example of a Landing Page you can build using
+                  Notus JS. It features multiple CSS components based on the
+                  Tailwind CSS design system.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <h2 class="text-4xl font-bold">Vedd fel velünk a kapcsolatot te buzi</h2>
-    <button type="button" class=" btn btn-xl variant-filled mt-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-10xl px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">ITT</button>
+      <section class="pb-10 bg-blueGray-200 -mt-24">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap">
+            <div class="lg:pt-12 pt-60  md:w-4/20 px-4 text-center mr-48">
+              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div class="px-4 py-5 flex-auto">
+                  <div class=" p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                    <i class="fas fa-award"></i>
+                  </div>
+                  <h6 class="text-xl ">Eventhost team</h6>
+                  <p class="m-auto text-black over">
+                    Vedd fel velünk a kapcsolatot és mi segítünk neked. Kiválasztjuk a legjobb ajánaltot számodra.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
 
   </div>
 </div>
+
+
+
+
+
 </body>
