@@ -78,7 +78,7 @@
     </nav>
   </header>
 
-  <div class="min-h-screen w-screen bg-gray-900 p-0 sm:p-12">
+  <div class="min-h-full w-screen bg-gray-900 mt-12 sm:p-12">
     <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
       <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
       <form method="POST" use:enhance>
