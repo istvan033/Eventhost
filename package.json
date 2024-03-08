@@ -50,6 +50,7 @@
     "@auth/edgedb-adapter": "^0.5.3",
     "@floating-ui/dom": "1.5.3",
     "edgedb": "^1.4.1",
+    "flowbite": "^2.3.0",
     "next-auth": "^4.24.5"
   }
 }

@@ -33,22 +33,27 @@ export const actions = {
     const form = await superValidate(request, schema);
     const companies = e.select(e.Company, () => ({
       organizerCode: true,
+      companyEmail: true,
     }))
     .run(client);
 
-    let organizerCodeData = form.data.organizerCode;
+    const organizerCodeData = form.data.organizerCode;
     const codeMatched = (await companies).find(companies => companies.organizerCode == organizerCodeData);
 
-    if (!form.valid) {
+    const email = form.data.email;
+    const emailSplit = email.split('@')[1];
+    const emailMatched = (await companies).find(companies => companies.companyEmail == emailSplit);
+
+    if (!form.valid || !emailMatched) {
       return fail(400, { form });
-    } else if (form.valid && codeMatched) {
+    } else if (form.valid && codeMatched && emailMatched) {
       await e
         .insert(e.Organizer, {
           ...form.data,
         })
         .run(client);
       return { form };
-    } else if (form.valid && !codeMatched) {
+    } else if (form.valid && !codeMatched && emailMatched) {
       await e
         .insert(e.User, {
           ...form.data,
