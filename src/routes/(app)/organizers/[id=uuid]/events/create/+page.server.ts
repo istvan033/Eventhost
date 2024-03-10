@@ -8,18 +8,18 @@ import { client } from '@/services/edgedb';
 const schema = z
   .object({
     // HasAddress
-    country: z.string().min(2),
-    zipCode: z.string().min(4),
-    city: z.string().min(1),
-    address: z.string().min(1),
-    addressDetail: z.string().min(1),
+    country: z.string(),
+    zipCode: z.string(),
+    city: z.string(),
+    address: z.string(),
+    addressDetail: z.string(),
 
-    title: z.string().min(1),
-    description: z.string().min(1),
+    title: z.string(),
+    description: z.string(),
     startsAt: z.date(),
     endsAt: z.date(),
-    placeName: z.string().min(1),
-    emailValidation: z.string().min(1),
+    placeName: z.string(),
+    emailValidation: z.string(),
   })
   .refine(data => data.startsAt < data.endsAt, {
     message: 'Event start date must be before end date.',

@@ -1,29 +1,25 @@
 import type { PageServerLoad, Actions } from './$types';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
-import e, { params } from '@/edgeql-js';
+import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
 
 const schema = z
   .object({
-    // HasAddress
     country: z.string(),
-    // zipCode: z.string(),
-    // city: z.string(),
-    // address: z.string(),
-    // addressDetail: z.string(),
+    zipCode: z.string(),
+    city: z.string(),
+    address: z.string(),
+    addressDetail: z.string(),
 
-    // title: z.string(),
-    // // description: z.string(),
-    // // startsAt: z.date(),
-    // // endsAt: z.date(),
-    // // placeName: z.string(),
+    title: z.string(),
+    description: z.string(),
+    startsAt: z.date(),
+    endsAt: z.date(),
+    placeName: z.string(),
+    emailValidation: z.string()
   })
-//   .refine(data => data.startsAt < data.endsAt, {
-//     message: 'Event start date must be before end date.',
-//     path: ['startsAt'],
-//   });
 
 export const load = (async ({ params }) => {
   const event = await e
@@ -46,11 +42,25 @@ export const actions = {
       return fail(400, { form });
     }
 
-    e.update(e.Event, () => ({
+    const events = e.update(e.Event, (event) => ({
       filter_single: { id: e.uuid(params.id) },
       set: {
-        country: "Avengers: Endgame"
-      }
+        country: form.data.country,
+        zipCode: form.data.zipCode,
+        city: form.data.city,
+        address: form.data.address,
+        addressDetail: form.data.addressDetail,
+
+        title: form.data.title,
+        description: form.data.description,
+        startsAt: form.data.startsAt,
+        endsAt: form.data.endsAt,
+        placeName: form.data.placeName,
+        emailValidation: form.data.emailValidation,
+      },
     }))
+    .run(client);
+
+    return {form, events}
   },
 } satisfies Actions;
