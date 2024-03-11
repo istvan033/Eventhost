@@ -12,24 +12,15 @@ export const load: PageServerLoad = async ({ params, locals }) => {
         }))
         .run(client);
     const sessionEmail = session?.user?.email;
-    const stringSessionEmail = sessionEmail as string;
     const afterAt = sessionEmail?.split('@')[1];
     const afterAtString: string = afterAt as string;
     const emailMatched = company?.companyEmail.includes(afterAtString)
-    const organizer = await e
-        .select(e.Organizer, () => ({
-        email: true,
-        filter_single: {email: stringSessionEmail}
-        }))
-        .run(client);
-    const organizerEmailMatched = organizer?.email == sessionEmail
-    
-    if(emailMatched && organizerEmailMatched) {
+    if(emailMatched) {
         return {
             company
         };
     }
-    else if (!company || !emailMatched || !organizerEmailMatched) {
+    else if (!company || !emailMatched) {
         throw error(404);
     }
 };
