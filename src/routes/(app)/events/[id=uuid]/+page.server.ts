@@ -14,9 +14,7 @@ export const load: PageServerLoad = async ({ params }) => {
     .run(client);
 
   if (!event) {
-    throw error(404, {
-      message: 'Esemény nem található.',
-    });
+    throw error(404);
   }
 
   return {
