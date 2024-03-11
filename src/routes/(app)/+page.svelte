@@ -90,22 +90,13 @@
           <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Lehetőségek az oladon</h2>
           <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
             <li>
-              At least 10 characters (and up to 100 characters)
+              Az lehetőség a céges élet nyomonkövtésére!
             </li>
             <li>
-              At least one lowercase character
+              Egyszerű esemény szervezés
             </li>
             <li>
-              Inclusion of at least one special character, e.g., ! @ # ?
-            </li>
-            <li>
-              At least 10 characters (and up to 100 characters)
-            </li>
-            <li>
-              At least one lowercase character
-            </li>
-            <li>
-              Inclusion of at least one special character, e.g., ! @ # ?
+              Lehetőség a munkafolyamat követésére
             </li>
             <li>
               At least 10 characters (and up to 100 characters)
@@ -114,7 +105,7 @@
               At least one lowercase character
             </li>
             <li>
-              Inclusion of at least one special character, e.g., ! @ # ?
+              Inclusion of at least one special character, e.g., ! @ #
             </li>
             <li>
               At least 10 characters (and up to 100 characters)
@@ -123,7 +114,7 @@
               At least one lowercase character
             </li>
             <li>
-              Inclusion of at least one special character, e.g., ! @ # ?
+              Inclusion of at least one special character, e.g., ! @ #
             </li>
             <li>
               At least 10 characters (and up to 100 characters)
@@ -132,7 +123,16 @@
               At least one lowercase character
             </li>
             <li>
-              Inclusion of at least one special character, e.g., ! @ # ?
+              Inclusion of at least one special character, e.g., ! @ #
+            </li>
+            <li>
+              At least 10 characters (and up to 100 characters)
+            </li>
+            <li>
+              At least one lowercase character
+            </li>
+            <li>
+              Inclusion of at least one special character, e.g., ! @ # 
             </li>
           </ul>
         </div>
@@ -143,11 +143,12 @@
   </div>
 
   <div class="sticky top-0 h-screen flex flex-col items-center justify-center snap-center backdrop-blur">
-    <div class="flex items-center justify-center min-h-screen bg-blueGray-50">
-      <section class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-        <div class="absolute top-0 w-full h-full bg-center bg-cover"></div>
-        <div class="container">
-          <div class="items-center">
+
+
+    <section class="relative  bg-blueGray-50">
+      <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+        <div class="container relative mx-auto">
+          <div class="items-center flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
               <div class="pr-12">
                 <h1 class="text-white font-semibold text-5xl">
@@ -162,35 +163,21 @@
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="pb-10 bg-blueGray-200 -mt-24">
-        <div class="container mx-auto px-4">
-          <div class="flex flex-wrap">
-            <div class="lg:pt-12 pt-60  md:w-4/20 px-4 text-center mr-48">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">
-                  <div class=" p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                    <i class="fas fa-award"></i>
-                  </div>
-                  <h6 class="text-xl ">Eventhost team</h6>
-                  <p class="m-auto text-black over">
-                    Vedd fel velünk a kapcsolatot és mi segítünk neked. Kiválasztjuk a legjobb ajánaltot számodra.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
+          <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+            <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+          </svg>
         </div>
-      </section>
-    </div>
+      </div>
+      <div class="flex justify-center">
+        <div class="relative inline-flex justify-center group">
+          <div class="absolute transition-all duration-10000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-250 animate-tilt">
+          </div>
+          <a href="#" title="Get quote now" class="relative inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">Vedd fel velünk a kapcsolatot</a>
+        </div>
+      </div>
 
-
+    </section>
   </div>
 </div>
-
-
-
-
-
 </body>
