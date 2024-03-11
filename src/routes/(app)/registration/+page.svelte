@@ -25,7 +25,7 @@
     }, 10);
     setTimeout(() => {
       goto('/');
-    }, 100);
+    }, 500);
   };
 
 
@@ -87,10 +87,9 @@
             <input
               class=" pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               type="text"
-              name="firstName"
+              name="lastName"
 
               placeholder="Vezeték Név"
-              bind:value={$form.firstName}
 
             />
 
@@ -102,7 +101,6 @@
               name="firstName"
 
               placeholder="Kereszt Név"
-              bind:value={$form.lastName}
             />
           </div>
         </div>
@@ -128,7 +126,6 @@
             name="phone"
             placeholder="telefonszám"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-            bind:value={$form.phone}
 
           />
         </div>
@@ -138,7 +135,6 @@
             name="address"
             placeholder="address"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-            bind:value={$form.address}
 
           />
         </div>
@@ -148,7 +144,6 @@
             name="addressDetail"
             placeholder="addressDetail"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-            bind:value={$form.addressDetail}
 
           />
         </div>
@@ -158,7 +153,6 @@
             name="city"
             placeholder="city"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-            bind:value={$form.city}
 
           />
         </div>
@@ -168,7 +162,6 @@
             name="country"
             placeholder="country"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-            bind:value={$form.country}
 
           />
         </div>
@@ -178,7 +171,6 @@
             name="zipCode"
             placeholder="zipCode"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-            bind:value={$form.zipCode}
 
           />
         </div>
@@ -188,7 +180,6 @@
             name="organizerCode"
             placeholder="organizerCode"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-            bind:value={$form.organizerCode}
 
           />
         </div>
