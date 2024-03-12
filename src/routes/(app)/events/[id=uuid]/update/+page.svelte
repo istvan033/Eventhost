@@ -1,12 +1,9 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { page } from '$app/stores';
-    import { superForm } from 'sveltekit-superforms/client';
     import { signIn, signOut } from '@auth/sveltekit/client';
   
     export let data: PageData;
-  
-    const { enhance } = superForm(data.form);
 
     let sessionEmail = data.session?.user?.email;
     let emailString: string = sessionEmail as string;
@@ -20,7 +17,6 @@
     let stringAddress = data.event?.address as string
     let stringAddressDetail = data.event?.addressDetail as string
     let stringTitle = data.event?.title as string
-
 
     let dateStartsAt = data.event?.startsAt as unknown as string
     function customDateFormatA(date: Date): string {
@@ -90,7 +86,7 @@
     <div class="min-h-full w-screen bg-gray-900 sm:p-12">
       <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
         <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
-        <form method="POST" use:enhance>
+        <form method="POST">
 
   
   

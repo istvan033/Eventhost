@@ -27,18 +27,23 @@ const schema = z
   })
 
 export const load = (async ({ params, locals }) => {
+
     const session = await locals.auth()
+
     const company = await e
         .select(e.Company, () => ({
         ...e.Company['*'],
         filter_single: { id: e.uuid(params.id) },
         }))
         .run(client);
+
     const sessionEmail = session?.user?.email;
     const stringSessionEmail = sessionEmail as string;
+
     const afterAt = sessionEmail?.split('@')[1];
     const afterAtString: string = afterAt as string;
     const emailMatched = company?.companyEmail.includes(afterAtString)
+
     const organizer = await e
         .select(e.Organizer, () => ({
         email: true,
@@ -52,24 +57,23 @@ export const load = (async ({ params, locals }) => {
             company
         };
     }
+
     else if (!company || !emailMatched || !organizerEmailMatched) {
         throw error(404);
     }
 
-  const form = superValidate(schema);
-
-  return { form, company };
 }) satisfies PageServerLoad;
 
 export const actions = {
   default: async ({ request, params }) => {
+
     const form = await superValidate(request, schema);
 
     if (!form.valid) {
       return fail(400, { form });
     }
 
-    const companies = e.update(e.Company, (company) => ({
+    e.update(e.Company, () => ({
       filter_single: { id: e.uuid(params.id) },
       set: {
         country: form.data.country,
@@ -93,6 +97,6 @@ export const actions = {
     }))
     .run(client);
 
-    return {form, companies}
   },
+  
 } satisfies Actions;

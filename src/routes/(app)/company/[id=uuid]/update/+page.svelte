@@ -1,12 +1,11 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { page } from '$app/stores';
-    import { superForm } from 'sveltekit-superforms/client';
     import { signIn, signOut } from '@auth/sveltekit/client';
-  
+	    
     export let data: PageData;
   
-    const { enhance } = superForm(data.form);
+
 
     let sessionEmail = data.session?.user?.email;
     let emailString: string = sessionEmail as string;
@@ -76,7 +75,7 @@
     <div class="min-h-full w-screen bg-gray-900 sm:p-12">
       <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
         <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
-        <form method="POST" use:enhance>
+        <form method="POST">
 
   
   
@@ -84,8 +83,8 @@
           <div class="relative z-0 w-full mb-5">
             <input
               type="text"
-              name="title"
-              placeholder="title"
+              name="euTaxNumber"
+              placeholder="euTaxNumber"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringEuTaxNumber}
   

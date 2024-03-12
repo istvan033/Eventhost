@@ -1,7 +1,6 @@
 import type { PageServerLoad, Actions } from './$types';
 import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
-
 import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
 import { z } from 'zod';
@@ -20,7 +19,6 @@ const schema = z
     phone: z.string(),
 
     organizerCode: z.string(),
-
   });
 
 export const load = (async () => {
@@ -30,7 +28,9 @@ export const load = (async () => {
 
 export const actions = {
   default: async ({ request }) => {
+
     const form = await superValidate(request, schema);
+
     const companies = e.select(e.Company, () => ({
       organizerCode: true,
       companyEmail: true,
@@ -46,20 +46,20 @@ export const actions = {
 
     if (!form.valid || !emailMatched) {
       return fail(400, { form });
-    } else if (form.valid && codeMatched && emailMatched) {
+    } 
+    else if (form.valid && codeMatched && emailMatched) {
       await e
         .insert(e.Organizer, {
           ...form.data,
         })
         .run(client);
-      return { form };
-    } else if (form.valid && !codeMatched && emailMatched) {
+    } 
+    else if (form.valid && !codeMatched && emailMatched) {
       await e
         .insert(e.User, {
           ...form.data,
         })
         .run(client);
-      return { form };
     }
     
   },

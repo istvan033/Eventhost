@@ -1,35 +1,15 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import type { PageData } from './$types';
-  import { superForm } from 'sveltekit-superforms/client';
   import { signIn, signOut } from '@auth/sveltekit/client';
   import { goto } from '$app/navigation';
+	import { enhance } from '$app/forms';
 
   export let data: PageData;
 
-
-  const { form, enhance } = superForm(data.form);
-
-  const handleClickSave = () => {
-    
-    setTimeout(() => {
-      $form.firstName = '';
-      $form.lastName = '';
-      $form.phone = '';
-      $form.address = '';
-      $form.addressDetail = '';
-      $form.city = '';
-      $form.country = '';
-      $form.zipCode = '';
-      $form.organizerCode = '';
-    }, 10);
-    setTimeout(() => {
-      goto('/');
-    }, 500);
-  };
-
-
-
+  function redirectTo() {
+    goto("/")
+  }
 
 </script>
 
@@ -186,8 +166,7 @@
 
 
         <button
-          on:click={handleClickSave}
-          on:click={setTimeout}
+          on:click={redirectTo}
           id="button"
           type="submit"
           class="  w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-gray-600 hover:bg-gray-100 hover:text-black hover:shadow-lg focus:outline-none"

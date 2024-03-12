@@ -13,9 +13,6 @@
 <!-- App Shell -->
 <body data-theme="wintry">
 	<AppShell>
-
-
-
 		<slot />
 	</AppShell>
 </body>

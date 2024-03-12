@@ -5,7 +5,9 @@ import type { PageServerLoad } from './$types';
 import { client } from "@/lib/server/edgedb";
 
 export const load = (async ({locals}: RequestEvent) => {
+
   const session = await locals.auth()
+
   const user = e.select(e.User, () => ({
     email: true,
   }))
@@ -26,8 +28,4 @@ export const load = (async ({locals}: RequestEvent) => {
     throw redirect(307, "/registration")
   }
 
-  return { 
-    user,
-    organizer
-  };
 }) satisfies PageServerLoad;

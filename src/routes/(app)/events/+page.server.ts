@@ -6,11 +6,15 @@ import type { RequestEvent } from "./$types"
 
 
 export const load = (async ({ locals }: RequestEvent) => {
+
   const session = await locals.auth()
+
   if (session?.user) {
+
     const sessionEmail = session?.user?.email;
     const afterAt = sessionEmail?.split('@')[1];
     const result: string = afterAt as string;
+
     return {
       event: await e
         .select(e.Event, (event) => ({
@@ -26,8 +30,10 @@ export const load = (async ({ locals }: RequestEvent) => {
         .run(client),
     };
   }
+
   else {
     throw redirect(307, '/');
   }
+  
 }) satisfies PageServerLoad;
 

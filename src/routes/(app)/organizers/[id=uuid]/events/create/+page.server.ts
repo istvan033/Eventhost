@@ -7,7 +7,6 @@ import { client } from '@/services/edgedb';
 
 const schema = z
   .object({
-    // HasAddress
     country: z.string(),
     zipCode: z.string(),
     city: z.string(),
@@ -27,8 +26,9 @@ const schema = z
   });
 
 export const load = (async ({locals}) => {
+
   const session = await locals.auth()
-  const form = superValidate(schema);
+
   const organizer = await e
     .select(e.Organizer, () => ({
       email: true
@@ -37,17 +37,16 @@ export const load = (async ({locals}) => {
 
   const sessionEmail = session?.user?.email;
   const emailMatched = (await organizer).find(organizer => organizer.email == sessionEmail);
-  if(emailMatched){
-    return { form };
-  }
-  else {
-    throw redirect(301, "/events")
+
+  if(!emailMatched){
+    throw redirect(307, "/events")
   }
  
 }) satisfies PageServerLoad;
 
 export const actions = {
   default: async ({ request, params }) => {
+
     const form = await superValidate(request, schema);
 
     if (!form.valid) {
@@ -63,6 +62,5 @@ export const actions = {
       })
       .run(client);
 
-    return { form };
   },
 } satisfies Actions;

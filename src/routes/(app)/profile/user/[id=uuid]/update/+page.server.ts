@@ -18,13 +18,15 @@ const schema = z
     lastName: z.string(),
     phone: z.string(),
     organizerCode: z.string(),
-
   })
 
-export const load = (async ({ params, locals }) => {
+export const load = (async ({ locals }) => {
+
     const session = await locals.auth()
+
     const sessionEmail = session?.user?.email;
     const stringSessionEmail = sessionEmail as string;
+
     const user = await e
         .select(e.User, () => ({
         ...e.User['*'],
@@ -42,9 +44,6 @@ export const load = (async ({ params, locals }) => {
         throw error(404);
     }
 
-  const form = superValidate(schema);
-
-  return { form, user };
 }) satisfies PageServerLoad;
 
 export const actions = {
@@ -55,7 +54,7 @@ export const actions = {
       return fail(400, { form });
     }
 
-    const user = e.update(e.User, (user) => ({
+    e.update(e.User, () => ({
       filter_single: { id: e.uuid(params.id) },
       set: {
         country: form.data.country,
@@ -73,6 +72,5 @@ export const actions = {
     }))
     .run(client);
 
-    return {form, user}
   },
 } satisfies Actions;

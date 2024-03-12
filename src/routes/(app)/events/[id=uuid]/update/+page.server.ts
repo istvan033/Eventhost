@@ -20,8 +20,13 @@ const schema = z
     placeName: z.string(),
     emailValidation: z.string()
   })
+  .refine(data => data.startsAt < data.endsAt, {
+    message: 'Event start date must be before end date.',
+    path: ['startsAt'],
+  });
 
 export const load = (async ({ params }) => {
+
   const event = await e
     .select(e.Event, () => ({
       ...e.Event['*'],
@@ -32,17 +37,19 @@ export const load = (async ({ params }) => {
   const form = superValidate(schema);
 
   return { form, event };
+
 }) satisfies PageServerLoad;
 
 export const actions = {
   default: async ({ request, params }) => {
+
     const form = await superValidate(request, schema);
 
     if (!form.valid) {
       return fail(400, { form });
     }
 
-    const events = e.update(e.Event, (event) => ({
+    e.update(e.Event, () => ({
       filter_single: { id: e.uuid(params.id) },
       set: {
         country: form.data.country,
@@ -61,6 +68,6 @@ export const actions = {
     }))
     .run(client);
 
-    return {form, events}
   },
+
 } satisfies Actions;

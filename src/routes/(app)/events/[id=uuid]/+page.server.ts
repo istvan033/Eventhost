@@ -4,6 +4,7 @@ import e from '@/edgeql-js';
 import { client } from '$lib/server/edgedb';
 
 export const load: PageServerLoad = async ({ params }) => {
+
   const event = await e
     .select(e.Event, event => ({
       ...e.Event['*'],
@@ -20,6 +21,7 @@ export const load: PageServerLoad = async ({ params }) => {
   return {
     event
   };
+  
 };
 
 

@@ -3,10 +3,9 @@
   import { page } from '$app/stores';
   import { superForm } from 'sveltekit-superforms/client';
   import { signIn, signOut } from '@auth/sveltekit/client';
+	import { enhance } from '$app/forms';
 
   export let data: PageData;
-
-  const { form, enhance } = superForm(data.form);
 
   let sessionEmail = data.session?.user?.email;
   let emailString: string = sessionEmail as string;
