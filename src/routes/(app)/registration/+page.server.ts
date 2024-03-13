@@ -7,23 +7,21 @@ import { z } from 'zod';
 
 const schema = z
   .object({
-    address: z.string(),
-    addressDetail: z.string(),
-    city: z.string(),
-    country: z.string(),
-    zipCode: z.string(),
+    address: z.string().min(1),
+    addressDetail: z.string().min(1),
+    city: z.string().min(1),
+    country: z.string().min(1),
+    zipCode: z.string().min(1),
 
-    email: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
-    phone: z.string(),
+    email: z.string().min(1),
+    firstName: z.string().min(1),
+    lastName: z.string().min(1),
+    phone: z.string().min(1),
 
     organizerCode: z.string(),
   });
 
 export const load = (async () => {
-  const form = superValidate(schema);
-  return { form };
 }) satisfies PageServerLoad;
 
 export const actions = {
@@ -61,6 +59,6 @@ export const actions = {
         })
         .run(client);
     }
-    
+
   },
 } satisfies Actions;
