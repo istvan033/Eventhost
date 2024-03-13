@@ -4,6 +4,7 @@ import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
+import { error } from 'console';
 
 const schema = z
   .object({
@@ -25,7 +26,17 @@ const schema = z
     path: ['startsAt'],
   });
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, locals }) => {
+
+  const session = await locals.auth();
+  const sessionEmail = session?.user?.email;
+
+  const organizer = e.select(e.Organizer, () => ({
+    email: true,
+    id: true,
+  }))
+  .run(client);
+  const foundOrganizerEmail = (await organizer).find(organizer => organizer.email == sessionEmail);
 
   const event = await e
     .select(e.Event, () => ({
@@ -34,9 +45,18 @@ export const load = (async ({ params }) => {
     }))
     .run(client);
 
-  const form = superValidate(schema);
+  const afterAt = sessionEmail?.split('@')[1];
+  const afterAtString: string = afterAt as string;
+  const emailMatched = event?.emailValidation.includes(afterAtString)
 
-  return { form, event };
+  const pageRequirementsPassed = emailMatched && foundOrganizerEmail;
+
+  if(pageRequirementsPassed){
+    return { event };
+  }
+  else {
+    throw error(404)
+  }
 
 }) satisfies PageServerLoad;
 
