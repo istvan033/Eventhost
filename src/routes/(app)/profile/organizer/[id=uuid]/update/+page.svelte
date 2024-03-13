@@ -1,6 +1,5 @@
 <script lang="ts">
     import type { PageData } from './$types';
-    import Header from "@/lib/components/header.svelte";
 
   
     export let data: PageData;
@@ -19,7 +18,6 @@
   </script>
   
   <body data-theme="wintry">
-    <Header />
 
     <div class="min-h-full w-screen bg-gray-900 sm:p-12">
       <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">

@@ -7,8 +7,6 @@
 
   const sessionImage = $page.data.session?.user?.image;
 
-
-
 </script>
 <body data-theme="wintry" class="scroll-smooth">
 <div class="relative overflow-y-auto snap-mandatory snap-y  h-screen overflow-hidden">
@@ -22,9 +20,16 @@
         <div class="flex place-items-end lg:order-3">
           <div class="flex items-center space-x-2 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
             {#if $page.data.session?.user}
-              <a href="/events">
-                <img src={sessionImage} class="rounded-full max-h-5" alt="Description of Image"/>
-              </a>
+              {#if data.organizer}
+                <a href="/profile/organizer/{data.organizer?.id}">
+                  <img src={sessionImage} class="rounded-full max-h-5" alt="Description of Image"/>
+                </a>
+              {/if}
+              {#if data.user}
+                <a href="/profile/user/{data.user?.id}">
+                  <img src={sessionImage} class="rounded-full max-h-5" alt="Description of Image"/>
+                </a>
+              {/if}
               <p>Signed in as {$page.data.session.user.email}</p>
               <button on:click={signOut} class="underline">Sign out</button>
             {:else}
