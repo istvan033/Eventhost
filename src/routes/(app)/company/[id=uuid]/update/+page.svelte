@@ -74,17 +74,23 @@
 
     <div class="min-h-full w-screen bg-gray-900 sm:p-12">
       <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
-        <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
+        <h1 class="text-2xl font-bold mb-8 text-center">Update Company Information</h1>
         <form method="POST">
-
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringName}
   
-  
-  
+            />
+          </div>
           <div class="relative z-0 w-full mb-5">
             <input
               type="text"
               name="euTaxNumber"
-              placeholder="euTaxNumber"
+              placeholder="Eu Tax Number"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringEuTaxNumber}
   
@@ -93,8 +99,38 @@
           <div class="relative z-0 w-full mb-5">
             <input
               type="text"
+              name="country"
+              placeholder="Country"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringCountry}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringCity}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="zipCode"
+              placeholder="Zip Code"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringZipCode}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
               name="address"
-              placeholder="address"
+              placeholder="Address"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringAddress}
   
@@ -104,39 +140,20 @@
             <input
               type="text"
               name="addressDetail"
-              placeholder="addressDetail"
+              placeholder="Address Detail"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringAddressDetail}
   
             />
           </div>
+          
           <div class="relative z-0 w-full mb-5">
             <input
               type="text"
-              name="city"
-              placeholder="city"
+              name="website"
+              placeholder="Website"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringCity}
-  
-            />
-          </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="country"
-              placeholder="country"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringCountry}
-  
-            />
-          </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="zipCode"
-              placeholder="zipCode"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringZipCode}
+              bind:value={stringWebsite}
   
             />
           </div>
@@ -144,7 +161,7 @@
             <input
               type="text"
               name="facebook"
-              placeholder="facebook"
+              placeholder="Facebook"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringFacebook}
   
@@ -154,7 +171,7 @@
             <input
               type="text"
               name="instagram"
-              placeholder="instagram"
+              placeholder="Instagram"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringInstagram}
   
@@ -164,27 +181,18 @@
             <input
               type="text"
               name="linkedin"
-              placeholder="linkedin"
+              placeholder="Linkedin"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringLinkedIn}
   
             />
           </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="name"
-              placeholder="name"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringName}
-  
-            />
-          </div>
+          
           <div class="relative z-0 w-full mb-5">
             <input
               type="text"
               name="threads"
-              placeholder="threads"
+              placeholder="Threads"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringThreads}
   
@@ -194,27 +202,18 @@
             <input
               type="text"
               name="tiktok"
-              placeholder="tiktok"
+              placeholder="Tiktok"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringTiktok}
   
             />
           </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="website"
-              placeholder="website"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringWebsite}
-  
-            />
-          </div>
+          
           <div class="relative z-0 w-full mb-5">
             <input
               type="text"
               name="description"
-              placeholder="description"
+              placeholder="Description"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringDescription}
   

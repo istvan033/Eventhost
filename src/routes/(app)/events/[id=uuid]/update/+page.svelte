@@ -85,11 +85,8 @@
 
     <div class="min-h-full w-screen bg-gray-900 sm:p-12">
       <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
-        <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
+        <h1 class="text-2xl font-bold mb-8 text-center">Update Event Information</h1>
         <form method="POST">
-
-  
-  
   
           <div class="relative z-0 w-full mb-5">
             <input
@@ -98,6 +95,46 @@
               placeholder="title"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringTitle}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="placeName"
+              placeholder="placeName"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringPlaceName}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="country"
+              placeholder="country"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringCountry}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="city"
+              placeholder="city"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringCity}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="zipCode"
+              placeholder="zipCode"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringZipCode}
   
             />
           </div>
@@ -123,57 +160,6 @@
           </div>
           <div class="relative z-0 w-full mb-5">
             <input
-              type="text"
-              name="city"
-              placeholder="city"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringCity}
-  
-            />
-          </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="country"
-              placeholder="country"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringCountry}
-  
-            />
-          </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="zipCode"
-              placeholder="zipCode"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringZipCode}
-  
-            />
-          </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="placeName"
-              placeholder="placeName"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringPlaceName}
-  
-            />
-          </div>
-          <div class="relative z-0 w-full mb-5">
-            <input
-              type="text"
-              name="description"
-              placeholder="description"
-              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-              bind:value={stringDescription}
-  
-            />
-          </div>
-
-          <div class="relative z-0 w-full mb-5">
-            <input
               class="input"
               type="date"
               name="startsAt"
@@ -187,6 +173,16 @@
               type="date"
               name="endsAt"
               bind:value={dateStringB}
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="description"
+              placeholder="description"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringDescription}
+  
             />
           </div>
 

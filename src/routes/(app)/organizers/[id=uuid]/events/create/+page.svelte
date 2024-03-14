@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { page } from '$app/stores';
-  import { superForm } from 'sveltekit-superforms/client';
   import { signIn, signOut } from '@auth/sveltekit/client';
 	import { enhance } from '$app/forms';
 
@@ -58,62 +57,13 @@
 
   <div class="min-h-full w-screen bg-gray-900 sm:p-12">
     <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
-      <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
+      <h1 class="text-2xl font-bold mb-8 text-center">Create Event</h1>
       <form method="POST" use:enhance>
-
-
-
-
         <div class="relative z-0 w-full mb-5">
           <input
             type="text"
             name="title"
-            placeholder="title"
-            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-
-          />
-        </div>
-        <div class="relative z-0 w-full mb-5">
-          <input
-            type="text"
-            name="address"
-            placeholder="address"
-            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-
-          />
-        </div>
-        <div class="relative z-0 w-full mb-5">
-          <input
-            type="text"
-            name="addressDetail"
-            placeholder="addressDetail"
-            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-
-          />
-        </div>
-        <div class="relative z-0 w-full mb-5">
-          <input
-            type="text"
-            name="city"
-            placeholder="city"
-            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-
-          />
-        </div>
-        <div class="relative z-0 w-full mb-5">
-          <input
-            type="text"
-            name="country"
-            placeholder="country"
-            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-
-          />
-        </div>
-        <div class="relative z-0 w-full mb-5">
-          <input
-            type="text"
-            name="zipCode"
-            placeholder="zipCode"
+            placeholder="Title"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
 
           />
@@ -122,7 +72,7 @@
           <input
             type="text"
             name="placeName"
-            placeholder="placeName"
+            placeholder="Place Name"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
 
           />
@@ -130,13 +80,48 @@
         <div class="relative z-0 w-full mb-5">
           <input
             type="text"
-            name="description"
-            placeholder="description"
+            name="country"
+            placeholder="Country"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
 
           />
         </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
 
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="zipCode"
+            placeholder="Zip Code"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="address"
+            placeholder="Address"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="addressDetail"
+            placeholder="Address Detail"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>        
         <div class="relative z-0 w-full mb-5">
           <input
             class="input"
@@ -145,11 +130,20 @@
           />
         </div>
 
-        <div class="relative z-0 w-full">
+        <div class="relative z-0 w-full mb-5">
           <input
             class="input"
             type="date"
             name="endsAt"
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="description"
+            placeholder="Description"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
           />
         </div>
         

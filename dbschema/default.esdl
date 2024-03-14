@@ -65,6 +65,12 @@ module default {
     tiktok: str;
   }
 
+  type companyNews extending HasTimestamps {
+    title: str;
+    description: str;
+    
+  }
+
 
 
 

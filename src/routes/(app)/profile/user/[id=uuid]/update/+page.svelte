@@ -22,7 +22,7 @@
 
     <div class="min-h-full w-screen bg-gray-900 sm:p-12">
       <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
-        <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
+        <h1 class="text-2xl font-bold mb-8 text-center">Your Information Update</h1>
         <form method="POST">
 
   
@@ -53,7 +53,7 @@
             <input
               type="text"
               name="phone"
-              placeholder="phone"
+              placeholder="Phone"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringPhone}
   
@@ -63,7 +63,7 @@
             <input
               type="text"
               name="country"
-              placeholder="country"
+              placeholder="Country"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringCountry}
   
@@ -73,7 +73,7 @@
             <input
               type="text"
               name="city"
-              placeholder="city"
+              placeholder="City"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringCity}
   
@@ -83,7 +83,7 @@
             <input
               type="text"
               name="zipCode"
-              placeholder="zipCode"
+              placeholder="Zip Code"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringZipCode}
   
@@ -93,7 +93,7 @@
             <input
               type="text"
               name="address"
-              placeholder="address"
+              placeholder="Address"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringAddress}
   
@@ -103,7 +103,7 @@
             <input
               type="text"
               name="addressDetail"
-              placeholder="addressDetail"
+              placeholder="Address Detail"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringAddressDetail}
   
