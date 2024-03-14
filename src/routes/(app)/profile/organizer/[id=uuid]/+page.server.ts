@@ -17,7 +17,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
     const sessionEmail = session?.user?.email;
 
     const sessionEmailString = sessionEmail as string
-    const emailMatched = organizer?.email.includes(sessionEmailString)
+    const emailMatched = organizer?.email == sessionEmailString
 
     if(emailMatched) {
         return {

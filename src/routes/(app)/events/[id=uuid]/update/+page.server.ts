@@ -18,6 +18,7 @@ const schema = z
     description: z.string(),
     startsAt: z.date(),
     endsAt: z.date(),
+    startsAtHour: z.string(),
     placeName: z.string(),
     emailValidation: z.string()
   })
@@ -82,6 +83,7 @@ export const actions = {
         description: form.data.description,
         startsAt: form.data.startsAt,
         endsAt: form.data.endsAt,
+        startsAtHour: form.data.startsAtHour,
         placeName: form.data.placeName,
         emailValidation: form.data.emailValidation,
       },

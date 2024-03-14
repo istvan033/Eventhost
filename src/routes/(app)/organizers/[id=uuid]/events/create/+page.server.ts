@@ -17,6 +17,7 @@ const schema = z
     description: z.string(),
     startsAt: z.date(),
     endsAt: z.date(),
+    startsAtHour: z.string(),
     placeName: z.string(),
     emailValidation: z.string(),
   })

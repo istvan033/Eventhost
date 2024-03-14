@@ -20,7 +20,7 @@ const schema = z
     organizerCode: z.string(),
   })
 
-export const load = (async ({ locals }) => {
+export const load = (async ({ params, locals }) => {
 
     const session = await locals.auth()
 
@@ -30,10 +30,10 @@ export const load = (async ({ locals }) => {
     const user = await e
         .select(e.User, () => ({
         ...e.User['*'],
-        filter_single: {email: stringSessionEmail}
+        filter_single: { id: e.uuid(params.id) }
         }))
         .run(client);
-    const userEmailMatched = user?.email == sessionEmail
+    const userEmailMatched = user?.email == stringSessionEmail
     
     if(userEmailMatched) {
         return {

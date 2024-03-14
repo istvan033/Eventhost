@@ -140,6 +140,15 @@
         <div class="relative z-0 w-full mb-5">
           <input
             type="text"
+            name="startsAtHour"
+            placeholder="Starting Hour"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
             name="description"
             placeholder="Description"
             class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"

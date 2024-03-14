@@ -17,6 +17,7 @@
     let stringAddress = data.event?.address as string
     let stringAddressDetail = data.event?.addressDetail as string
     let stringTitle = data.event?.title as string
+    let stringStartsAtHour = data.event?.startsAtHour as string
 
     let dateStartsAt = data.event?.startsAt as unknown as string
     function customDateFormatA(date: Date): string {
@@ -92,7 +93,7 @@
             <input
               type="text"
               name="title"
-              placeholder="title"
+              placeholder="Title"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringTitle}
   
@@ -102,7 +103,7 @@
             <input
               type="text"
               name="placeName"
-              placeholder="placeName"
+              placeholder="Place Name"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringPlaceName}
   
@@ -112,7 +113,7 @@
             <input
               type="text"
               name="country"
-              placeholder="country"
+              placeholder="Country"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringCountry}
   
@@ -122,7 +123,7 @@
             <input
               type="text"
               name="city"
-              placeholder="city"
+              placeholder="City"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringCity}
   
@@ -132,7 +133,7 @@
             <input
               type="text"
               name="zipCode"
-              placeholder="zipCode"
+              placeholder="Zip Code"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringZipCode}
   
@@ -142,7 +143,7 @@
             <input
               type="text"
               name="address"
-              placeholder="address"
+              placeholder="Address"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringAddress}
   
@@ -152,7 +153,7 @@
             <input
               type="text"
               name="addressDetail"
-              placeholder="addressDetail"
+              placeholder="Address Detail"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringAddressDetail}
   
@@ -178,8 +179,18 @@
           <div class="relative z-0 w-full mb-5">
             <input
               type="text"
+              name="startsAtHour"
+              placeholder="Starting Hour"
+              class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              bind:value={stringStartsAtHour}
+  
+            />
+          </div>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
               name="description"
-              placeholder="description"
+              placeholder="Description"
               class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               bind:value={stringDescription}
   

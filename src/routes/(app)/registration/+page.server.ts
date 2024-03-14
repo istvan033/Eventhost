@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from './$types';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
@@ -21,7 +21,32 @@ const schema = z
     organizerCode: z.string(),
   });
 
-export const load = (async () => {
+export const load = (async ({ locals }) => {
+
+  const session = await locals.auth()
+  const sessionEmail = session?.user?.email;
+
+  const user = e.select(e.User, () => ({
+    email: true,
+  }))
+  .run(client);
+  const userEmailMatched = (await user).find(user => user.email == sessionEmail);
+  
+  const organizer = e.select(e.Organizer, () => ({
+    email: true,
+  }))
+  .run(client);
+  const organizerEmailMatched = (await organizer).find(organizer => organizer.email == sessionEmail);
+
+  const emailFound = userEmailMatched || organizerEmailMatched
+
+  if(!emailFound) {
+    return true
+  }
+  else if(emailFound) {
+    throw redirect(307, "/")
+  }
+
 }) satisfies PageServerLoad;
 
 export const actions = {

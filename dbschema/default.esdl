@@ -36,6 +36,9 @@ module default {
     startsAt: datetime;
     endsAt: datetime;
     constraint expression on (.startsAt < .endsAt);
+    startsAtHour: str{
+      constraint regexp(r'^(0?[0-9]|1[0-9]|2[0-4]):[0-5][0-9]$');
+    };
     required link organizer: Organizer;
     multi link tickets := .<event[is Ticket];
   }
