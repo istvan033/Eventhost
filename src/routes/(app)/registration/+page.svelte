@@ -7,7 +7,7 @@
   export let data: PageData;
 
   async function redirectTo() {
-    goto("/")
+    goto("/home")
   }
 
 </script>
