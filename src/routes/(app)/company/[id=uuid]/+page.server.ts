@@ -17,11 +17,27 @@ export const load: PageServerLoad = async ({ params, locals }) => {
     const sessionEmail = session?.user?.email;
     const afterAt = sessionEmail?.split('@')[1];
     const afterAtString: string = afterAt as string;
-    const emailMatched = company?.companyEmail.includes(afterAtString)
+    const emailMatched = company?.companyEmail.includes(afterAtString);
+    const searchSessionEmailString = sessionEmail as string;
+
+    const organizer = e.select(e.Organizer, () => ({
+        email: true,
+        id: true,
+        filter_single: {email: e.str(searchSessionEmailString)}
+      }))
+      .run(client);
+      const user = e.select(e.User, () => ({
+        email: true,
+        id: true,
+        filter_single: {email: e.str(searchSessionEmailString)}
+      }))
+      .run(client);
 
     if(emailMatched) {
         return {
-            company
+            company,
+            organizer,
+            user
         };
     }
 

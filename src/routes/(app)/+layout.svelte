@@ -10,7 +10,7 @@
 
 	export let data: PageData;
 </script>
-<!-- App Shell -->
+
 <body data-theme="wintry">
 	<AppShell>
 		<slot />

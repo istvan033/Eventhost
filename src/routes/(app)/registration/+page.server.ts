@@ -40,10 +40,7 @@ export const load = (async ({ locals }) => {
 
   const emailFound = userEmailMatched || organizerEmailMatched
 
-  if(!emailFound) {
-    return true
-  }
-  else if(emailFound) {
+  if(emailFound) {
     throw redirect(307, "/")
   }
 

@@ -8,13 +8,25 @@ import type { RequestEvent } from "./$types"
 export const load = (async ({ locals }: RequestEvent) => {
 
   const session = await locals.auth()
+  const sessionEmail = session?.user?.email;
+  const afterAt = sessionEmail?.split('@')[1];
+  const result: string = afterAt as string;
+  const searchSessionEmailString = sessionEmail as string;
+
+    const organizer = e.select(e.Organizer, () => ({
+      email: true,
+      id: true,
+      filter_single: {email: e.str(searchSessionEmailString)}
+    }))
+    .run(client);
+    const user = e.select(e.User, () => ({
+      email: true,
+      id: true,
+      filter_single: {email: e.str(searchSessionEmailString)}
+    }))
+    .run(client);
 
   if (session?.user) {
-
-    const sessionEmail = session?.user?.email;
-    const afterAt = sessionEmail?.split('@')[1];
-    const result: string = afterAt as string;
-
     return {
       event: await e
         .select(e.Event, (event) => ({
@@ -28,9 +40,10 @@ export const load = (async ({ locals }: RequestEvent) => {
           filter: e.op(event.emailValidation, '=', result)
         }))
         .run(client),
+      organizer,
+      user
     };
   }
-
   else {
     throw redirect(307, '/');
   }

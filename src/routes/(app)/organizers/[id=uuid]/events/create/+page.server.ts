@@ -26,22 +26,30 @@ const schema = z
     path: ['startsAt'],
   });
 
-export const load = (async ({locals}) => {
+export const load = (async ({locals, params}) => {
 
   const session = await locals.auth()
 
+  const sessionEmail = session?.user?.email;
+  const sessionEmailString = sessionEmail as string;
+
   const organizer = await e
     .select(e.Organizer, () => ({
-      email: true
+      email: true,
+      id: true,
+      filter_single: {email: e.str(sessionEmailString)}
     }))
     .run(client);
 
-  const sessionEmail = session?.user?.email;
-  const emailMatched = (await organizer).find(organizer => organizer.email == sessionEmail);
+  const idMatched = organizer.id == params.id
 
-  if(!emailMatched){
+  if(organizer && idMatched){
+    return {organizer}
+  }
+  else{
     throw redirect(307, "/events")
   }
+  
  
 }) satisfies PageServerLoad;
 

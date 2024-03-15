@@ -31,13 +31,14 @@ export const load = (async ({ params, locals }) => {
 
   const session = await locals.auth();
   const sessionEmail = session?.user?.email;
+  const searchSessionEmailString = sessionEmail as string;
 
   const organizer = e.select(e.Organizer, () => ({
     email: true,
     id: true,
+    filter_single: {email: e.str(searchSessionEmailString)}
   }))
   .run(client);
-  const foundOrganizerEmail = (await organizer).find(organizer => organizer.email == sessionEmail);
 
   const event = await e
     .select(e.Event, () => ({
@@ -50,10 +51,10 @@ export const load = (async ({ params, locals }) => {
   const afterAtString: string = afterAt as string;
   const emailMatched = event?.emailValidation.includes(afterAtString)
 
-  const pageRequirementsPassed = emailMatched && foundOrganizerEmail;
+  const pageRequirementsPassed = emailMatched && organizer;
 
   if(pageRequirementsPassed){
-    return { event };
+    return { event, organizer };
   }
   else {
     throw error(404)

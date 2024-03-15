@@ -9,6 +9,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
   const sessionEmail = session?.user?.email;
   const afterAt = sessionEmail?.split('@')[1];
   const result: string = afterAt as string;
+  const searchSessionEmailString = sessionEmail as string;
 
   const event = await e
     .select(e.Event, () => ({
@@ -19,9 +20,24 @@ export const load: PageServerLoad = async ({ params, locals }) => {
     
   const emailMatched = event?.emailValidation == result;
 
+  const organizer = e.select(e.Organizer, () => ({
+    email: true,
+    id: true,
+    filter_single: {email: e.str(searchSessionEmailString)}
+  }))
+  .run(client);
+  const user = e.select(e.User, () => ({
+    email: true,
+    id: true,
+    filter_single: {email: e.str(searchSessionEmailString)}
+  }))
+  .run(client);
+
   if(emailMatched){
     return {
-      event
+      event,
+      organizer,
+      user
     };
   }
   else if(!event || !emailMatched) {

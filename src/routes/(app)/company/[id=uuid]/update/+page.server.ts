@@ -54,7 +54,8 @@ export const load = (async ({ params, locals }) => {
     
     if(emailMatched && organizerEmailMatched) {
         return {
-            company
+            company,
+            organizer
         };
     }
 

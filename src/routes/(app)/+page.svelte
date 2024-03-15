@@ -2,10 +2,20 @@
   import type { PageData } from './$types';
   import { page } from '$app/stores';
   import { signIn, signOut } from "@auth/sveltekit/client";
+	import { onMount } from 'svelte';
 
   export let data: PageData;
 
-  const sessionImage = $page.data.session?.user?.image;
+  onMount(() => {
+    const scrollToDiv = () => {
+      const div = document.getElementById('eyeCatcher');
+
+      if (div) {
+        div.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    scrollToDiv();
+  });
 
 </script>
 <body data-theme="wintry" class="scroll-smooth">
@@ -22,12 +32,12 @@
             {#if $page.data.session?.user}
               {#if data.organizer}
                 <a href="/profile/organizer/{data.organizer?.id}" >
-                  <img src={$page.data.session?.user?.image} class="rounded-full max-h-5" alt="Description of Image"/>
+                  <img src={$page.data.session?.user?.image} class="rounded-full max-h-5" alt="PFP"/>
                 </a>
               {/if}
               {#if data.user}
                 <a href="/profile/user/{data.user?.id}" >
-                  <img src={$page.data.session?.user?.image} class="rounded-full max-h-5" alt="Description of Image"/>
+                  <img src={$page.data.session?.user?.image} class="rounded-full max-h-5" alt="PFP"/>
                 </a>
               {/if}
               <p>Signed in as {$page.data.session.user.email}</p>
@@ -48,13 +58,13 @@
           <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
             
             <li>
-              <a href="#" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
+              <a href="/" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
             </li>
             <li>
               <a href="http://localhost:5173/aboutus" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
             </li>
             <li>
-              <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+              <a href="/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
             </li>
             {#if $page.data.session?.user}
               <li>
@@ -67,7 +77,7 @@
     </nav>
   </header>
 
-  <div class="sticky top-0 h-screen snap-start">
+  <div class="sticky top-0 h-screen snap-start" id="eyeCatcher">
     <div class="absolute inset-0 bg-cover bg-center filter bg-[url('https://4kwallpapers.com/images/wallpapers/ocean-waves-aerial-view-blue-water-pattern-sea-waves-5k-2560x1080-4605.jpg')]" ></div>
     <section class="flex items-center justify-center min-h-screen w-screen backdrop-blur">
       <div class="text-center max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 relative z-10 ">
@@ -185,7 +195,7 @@
         <div class="relative inline-flex justify-center group">
           <div class="absolute transition-all duration-10000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-250 animate-tilt">
           </div>
-          <a href="#" title="Get quote now" class="relative inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">Vedd fel velünk a kapcsolatot</a>
+          <a href="/" title="Get quote now" class="relative inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">Vedd fel velünk a kapcsolatot</a>
         </div>
       </div>
 
