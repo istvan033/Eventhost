@@ -64,6 +64,7 @@
     <div class="p-10 max-w-sm mx-auto justify-center">
         
         <p>{data.user?.email}</p>
+        <a href="/profile/user/{data.user?.id}/update">Update Profile</a>
 
     </div>
   </body>

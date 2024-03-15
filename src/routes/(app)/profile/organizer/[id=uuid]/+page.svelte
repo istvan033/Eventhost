@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { page } from '$app/stores';
-    import { signIn, signOut } from "@auth/sveltekit/client"; 
+    import { signIn, signOut } from "@auth/sveltekit/client";
     
     export let data: PageData;
 </script>
@@ -64,6 +64,7 @@
     <div class="p-10 max-w-sm mx-auto justify-center">
         
         <p>{data.organizer?.email}</p>
+        <a href="/profile/organizer/{data.organizer?.id}/update">Update Profile</a>
 
     </div>
   </body>

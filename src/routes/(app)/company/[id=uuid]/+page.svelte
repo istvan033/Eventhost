@@ -69,6 +69,9 @@
     <div class="p-10 max-w-sm mx-auto justify-center">
         
         <p>{data.company?.name}</p>
+        {#if data.organizer}
+          <a href="/company/{data.company?.id}/update">Update Company</a>
+        {/if}
 
     </div>
   </body>
