@@ -26,7 +26,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
         filter_single: {email: e.str(searchSessionEmailString)}
       }))
       .run(client);
-      const user = e.select(e.User, () => ({
+    const user = e.select(e.User, () => ({
         email: true,
         id: true,
         filter_single: {email: e.str(searchSessionEmailString)}
