@@ -1,19 +1,9 @@
-CREATE MIGRATION m13piqsviop3tlflyuuhfmkaj2kxjf7sfwkczqe3elh3xnftpotd7q
-    ONTO m1zrfuavw3t33djp5dsc3yr3bny6jdelcm7bhkjxblksk2boscd6qa
+CREATE MIGRATION m1riuc7cjthykdfbih7hl5tkkqdlxdyzkicjbukjq24miabaeynvwq
+    ONTO m1cjedl7x65qigodomebndfm55tpdo7aatsll5t356v2o4l52ntzka
 {
-  ALTER TYPE default::Ticket {
-      CREATE REQUIRED LINK events: default::Event {
-          SET readonly := true;
-          SET REQUIRED USING (<default::Event>{});
-      };
-  };
-  ALTER TYPE default::Event {
-      ALTER LINK tickets {
-          USING (.<events[IS default::Ticket]);
-          DROP CONSTRAINT std::exclusive;
-      };
-      CREATE REQUIRED PROPERTY ordinalNumberCounter: std::int64 {
-          SET default := 0;
+  ALTER TYPE default::Organizer {
+      CREATE REQUIRED PROPERTY organizerCode: std::str {
+          SET REQUIRED USING (<std::str>{});
       };
   };
 };

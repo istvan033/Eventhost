@@ -23,10 +23,8 @@ export const load = (async ({locals}: RequestEvent) => {
   .run(client);
   const foundOrganizerEmail = (await organizer).find(organizer => organizer.email == searchSessionEmail);
 
-  const emailFound = foundUserEmail || foundOrganizerEmail
-
-  if (session?.user && !emailFound) {
-    throw redirect(307, "/registration")
+  if (!session?.user) {
+    throw redirect(307, "/")
   }
   else if(foundOrganizerEmail){
     return {

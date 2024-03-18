@@ -1,37 +1,49 @@
-import type { PageServerLoad, Actions } from './$types';
+import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 import e from '@/edgeql-js';
 import { client } from '$lib/server/edgedb';
-import { z } from 'zod';
-import { superValidate } from 'sveltekit-superforms/server';
 
-const schema = z.object({
-  title: z.string(),
-  
-});
+export const load: PageServerLoad = async ({ params, locals }) => {
 
-export const load: PageServerLoad = async ({ params }) => {
+  const session = await locals.auth()
+  const sessionEmail = session?.user?.email;
+  const afterAt = sessionEmail?.split('@')[1];
+  const result: string = afterAt as string;
+  const searchSessionEmailString = sessionEmail as string;
+
   const event = await e
-    .select(e.Event, event => ({
+    .select(e.Event, () => ({
       ...e.Event['*'],
-      ticketCount: e.count(event.tickets),
-      tickets: true,
       filter_single: { id: e.uuid(params.id) },
     }))
     .run(client);
+    
+  const emailMatched = event?.emailValidation == result;
 
-  const form = superValidate(schema);
+  const organizer = e.select(e.Organizer, () => ({
+    email: true,
+    id: true,
+    filter_single: {email: e.str(searchSessionEmailString)}
+  }))
+  .run(client);
+  const user = e.select(e.User, () => ({
+    email: true,
+    id: true,
+    filter_single: {email: e.str(searchSessionEmailString)}
+  }))
+  .run(client);
 
-  if (!event) {
-    throw error(404, {
-      message: 'Esemény nem található.',
-    });
+  if(emailMatched){
+    return {
+      event,
+      organizer,
+      user
+    };
+  }
+  else if(!event || !emailMatched) {
+    throw error(404);
   }
 
-  return {
-    event,
-    form,
-  };
 };
 
 

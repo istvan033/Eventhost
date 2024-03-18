@@ -1,4 +1,3 @@
-import { redirect } from "@sveltejs/kit"
 import type { RequestEvent } from "./$types"
 import e from '@/edgeql-js';
 import type { PageServerLoad } from './$types';
@@ -26,7 +25,7 @@ export const load = (async ({locals}: RequestEvent) => {
   const emailFound = foundUserEmail || foundOrganizerEmail
 
   if (session?.user && !emailFound) {
-    throw redirect(307, "/registration")
+    return
   }
   else if(foundOrganizerEmail){
     return {
@@ -50,7 +49,4 @@ export const load = (async ({locals}: RequestEvent) => {
           .run(client),
     }
   }
-
-  
-
 }) satisfies PageServerLoad;

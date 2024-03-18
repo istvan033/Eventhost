@@ -16,11 +16,6 @@
         <div class="flex place-items-end lg:order-3">
           <div class="flex items-center space-x-2 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
             {#if $page.data.session?.user}
-              {#if data.organizer}
-                <a href="/profile/organizer/{data.organizer?.id}" >
-                  <img src={$page.data.session?.user?.image} class="rounded-full max-h-5" alt="PFP"/>
-                </a>
-              {/if}
               {#if data.user}
                 <a href="/profile/user/{data.user?.id}" >
                   <img src={$page.data.session?.user?.image} class="rounded-full max-h-5" alt="PFP"/>
@@ -61,32 +56,15 @@
       </div>
     </nav>
   </header>
-  <div class="card border-2 border-surface-900 h-5/6 variant-glass-surface mx-8 mt-8 rounded-3xl overflow-auto overflow-x-hidden max-h-5/6">
-    <div class="p-4 px-16 w-fill flex bg-surface-100-800-token border-2 border-x-transparent border-t-transparent border-surface-900 mb-1">
-      <span class="block text-lg font-bold w-48 mr-48">Title:</span>
-      <span class="block text-lg font-bold w-48 mr-48">Organizer:</span>
-      <span class="block text-lg font-bold w-48 mr-48">Place Name:</span>
-      <span class="block text-lg font-bold">Starts At:</span>
+  <div class="card border-2 border-surface-900 max-w-7xl max-h-fit variant-glass-surface mt-28 mx-auto rounded-3xl">
+    <div class="overflow-hidden">
+      <img src="/src/routes/tickets/huh_cat.jpg" class="max-h-60 w-full rounded-t-3xl" alt="kep"/>
     </div>
-    <ul>
-      {#each data.event as event}
-      <tbody>
-        <a href="/events/{event.id}">    
-          <li
-            class=" bg-surface-50-900-token px-8 py-4 w-wide mx-8 flex my-1 rounded-3xl border-2 border-surface-900"
-          >
-            <span class="block w-48 mr-48">{event.title}</span>
-            <span class="block w-48 mr-48">{event.placeName}</span>
-            <span class="block">{event.startsAt}</span>
-          </li>         
-        </a>
-      </tbody>
-      {:else}
-        <p>Jelenleg nincs eseményed</p>
-      {/each}
-      {#if data.organizer}
-        <a href="/organizers/{data.organizer.id}/events/create">Create Event</a>
-      {/if}
-    </ul>
-  </div>
-</body>
+    
+    <div class="p-10 max-w-sm mx-auto justify-center">
+        
+        <p>{data.user?.email}</p>
+        <a href="/profile/user/{data.user?.id}/update">Update Profile</a>
+
+    </div>
+  </body>

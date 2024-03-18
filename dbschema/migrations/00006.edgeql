@@ -1,31 +1,7 @@
-CREATE MIGRATION m1j5cnmsla6r5vf4ir2ed3xvtylxu7iyy7lnceur5wneywvg7em3wq
-    ONTO m1ajbghe2jysytiyf57idiuliz3zielqo22652ieimai7l5d64euka
+CREATE MIGRATION m1km7ogyljk37cu4mlun3nhpq2xq544onftadmlajcmmps6dzdjjsq
+    ONTO m1dpkfn2dyagw6aursfowlpkqotlhnipedqg23pcmzqoktbf5slaxq
 {
   ALTER TYPE default::Event {
-      DROP PROPERTY ordinalNumberCounter;
-  };
-  ALTER TYPE default::LinkOpen {
-      ALTER LINK ticket {
-          RENAME TO tickets;
-      };
-  };
-  ALTER TYPE default::Scan {
-      ALTER LINK user {
-          RENAME TO users;
-      };
-  };
-  ALTER TYPE default::Ticket {
-      ALTER LINK event {
-          RESET readonly;
-      };
-      CREATE REQUIRED PROPERTY fullName: std::str {
-          SET REQUIRED USING (<std::str>{});
-      };
-      ALTER PROPERTY inviteCode {
-          SET REQUIRED USING (<std::str>{});
-      };
-      ALTER PROPERTY token {
-          CREATE CONSTRAINT std::exclusive;
-      };
+      CREATE PROPERTY etel: cal::local_date;
   };
 };

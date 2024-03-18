@@ -1,14 +1,7 @@
-CREATE MIGRATION m1ajbghe2jysytiyf57idiuliz3zielqo22652ieimai7l5d64euka
-    ONTO m13piqsviop3tlflyuuhfmkaj2kxjf7sfwkczqe3elh3xnftpotd7q
+CREATE MIGRATION m1dpkfn2dyagw6aursfowlpkqotlhnipedqg23pcmzqoktbf5slaxq
+    ONTO m1riuc7cjthykdfbih7hl5tkkqdlxdyzkicjbukjq24miabaeynvwq
 {
-  ALTER TYPE default::Ticket {
-      ALTER LINK events {
-          RENAME TO event;
-      };
-  };
-  ALTER TYPE default::Organizer {
-      ALTER LINK events {
-          RENAME TO event;
-      };
+  ALTER TYPE default::User {
+      CREATE PROPERTY organizerCode: std::str;
   };
 };

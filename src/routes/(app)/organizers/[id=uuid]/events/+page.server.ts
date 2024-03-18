@@ -3,6 +3,7 @@ import e from '@/edgeql-js';
 import { client } from '@/services/edgedb';
 
 export const load = (async ({ params }) => {
+
   return {
     events: await e
       .select(e.Organizer.event, () => ({
@@ -11,4 +12,5 @@ export const load = (async ({ params }) => {
       }))
       .run(client),
   };
+  
 }) satisfies PageServerLoad;

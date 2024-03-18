@@ -1,77 +1,135 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-    import type { PageData } from './$types';
-    import { superForm } from 'sveltekit-superforms/client';
-  
-    export let data: PageData;
+  import { page } from '$app/stores';
+  import type { PageData } from './$types';
+  import { goto } from '$app/navigation';
+	import { enhance } from '$app/forms';
 
-  
-    const { form, enhance } = superForm(data.form);
-  </script>
-  
-  <body data-theme="wintry">
-    <div class="flex justify-center gap-4">
-      <div class="max-w-md">
-        <h1 class="h2 mb-4">Regisztráció befejezése</h1>
-        <form method="POST" use:enhance>
-          <label class="label mb-4" for="email"
-            >Email
+  export let data: PageData;
+
+  async function redirectTo() {
+    goto("/home")
+  }
+
+</script>
+
+
+<body>
+  <div class="absolute inset-0 bg-cover bg-center filter bg-gray-900">
+    <section class="flex items-center justify-center min-h-screen w-screen backdrop-blur">
+    <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
+      <h1 class="text-2xl font-bold mb-8 text-center">Finalize Your Registration</h1>
+      <form method="POST" use:enhance>
+        <div class="flex flex-row space-x-4">
+          <div class="relative z-0 w-full mb-5">
             <input
-              class="input"
+              class=" pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               type="text"
-              name="email"
-              readonly
-              bind:value={$page.data.session.user.email}
+              name="lastName"
+
+              placeholder="Last Name"
+
             />
-          </label>
-  
-          <div class="grid grid-cols-12 gap-4 mt-4">
-            <label class="label mb-4 col-span-3" for="firstName"
-              >firstName
-              <input
-                class="input"
-                type="text"
-                name="firstName"
-                bind:value={$form.firstName}
-              />
-            </label>
-  
-            <label class="label mb-4 col-span-3" for="lastName"
-              >lastName
-              <input
-                class="input"
-                type="text"
-                name="lastName"
-                bind:value={$form.lastName}
-              />
-            </label>
-  
-            <label class="label mb-4 col-span-6" for="passwordHash"
-              >passwordHash
-              <input
-                class="input"
-                type="text"
-                name="passwordHash"
-                bind:value={$form.passwordHash}
-              />
-            </label>
+
           </div>
-  
-          <label class="label mb-4" for="phone"
-            >phone
+          <div class="relative z-0 w-full mb-5">
             <input
-              class="input"
+              class=" pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               type="text"
-              name="phone"
-              bind:value={$form.phone}
+              name="firstName"
+
+              placeholder="First Name"
             />
-          </label>
-  
-          <button type="submit" class="btn variant-filled w-full"
-            >Mentés</button
-          >
-        </form>
-      </div>
+          </div>
+        </div>
+
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="email"
+            name="email"
+            readonly
+            class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            bind:value={$page.data.session.user.email}
+          />
+        </div>
+
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="country"
+            placeholder="Country"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="zipCode"
+            placeholder="Zip Code"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="address"
+            placeholder="Address"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="addressDetail"
+            placeholder="Address Detail"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+        <div class="relative z-0 w-full mb-5">
+          <input
+            type="text"
+            name="organizerCode"
+            placeholder="Organizer Code"
+            class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+
+          />
+        </div>
+
+
+        <button
+          on:click={redirectTo}
+          id="button"
+          type="submit"
+          class="  w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-gray-600 hover:bg-gray-100 hover:text-black hover:shadow-lg focus:outline-none"
+        >
+
+          Mentés
+        </button>
+
+      </form>
     </div>
-  </body>
-  
+  </section>
+  </div>
+
+</body>
