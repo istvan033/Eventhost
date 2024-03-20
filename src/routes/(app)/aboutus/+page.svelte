@@ -62,8 +62,8 @@
   </nav>
 </header>
 
-<body class="w-screen h-fit pb-60 pt-20">
-<div class="flex flex-col items-center mb-12">
+<body class="w-screen h-fit pb-60 ">
+<div class="flex flex-col items-center mb-4 pt-12">
   <h2 class="text-2xl font-bold">Eventhost Team</h2>
 </div>
 
@@ -74,7 +74,7 @@
           <img src="https://media1.tenor.com/m/t7_iTN0iYekAAAAd/sad-sad-cat.gif" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
         </header>
         <div class="p-10 max-w-sm mx-auto justify-center space-y-4">
-          <p class="h6 text-s">Backend Developer:</p>
+          <p class="h6 text-s">Frontend Developer:</p>
           <h3 class="h3">Pásztor István</h3>
           <article>
             <p>
@@ -95,7 +95,7 @@
           <img src="https://i.pinimg.com/originals/94/f0/65/94f0653d30bd368e5dfe492f0f60e01e.gif" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
         </header>
         <div class="p-10 max-w-sm mx-auto justify-center space-y-4">
-          <p class="h6 text-s">Frontend developer:</p>
+          <p class="h6 text-s">Backend developer:</p>
           <h3 class="h3" data-toc-ignore>Takács Dániel</h3>
           <article>
             <p>

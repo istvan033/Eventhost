@@ -4,6 +4,16 @@
     import { signIn, signOut } from "@auth/sveltekit/client";
     
     export let data: PageData;
+
+    let dateCreatedAt = data.event?.createdAt as unknown as string
+    function customDateFormatA(date: Date): string {
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+    let currentDateA = new Date(dateCreatedAt);
+    let dateStringA = customDateFormatA(currentDateA);
 </script>
 
 <body class="w-screen bg-gray-900">
@@ -71,7 +81,7 @@
         <div class="mb-6 ml-auto w-full shrink-0 grow-0 basis-auto px-3 md:mb-0 md:w-3/12">
           <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
             data-te-ripple-init data-te-ripple-color="light">
-            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/018.jpg" class="w-full" alt="Louvre" />
+            <img src="https://www.daysoftheyear.com/cdn-cgi/image/dpr=1%2Cf=auto%2Cfit=cover%2Cheight=650%2Cq=40%2Csharpen=1%2Cwidth=956/wp-content/uploads/international-black-cat-awareness-month-e1575287719521.jpg" class="w-full" alt="Louvre" />
             <a href="#!">
               <div
                 class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
@@ -92,7 +102,7 @@
             {event.placeName}
           </div>
           <p class="mb-6 text-neutral-500 dark:text-neutral-300">
-            <small>Created <u>{event.createdAt}</u> by
+            <small>Created at {event.createdAt} by
               <a href="#!">{event.organizer.firstName} {event.organizer.lastName}</a></small>
           </p>
           <p class="text-neutral-500 dark:text-neutral-300">
