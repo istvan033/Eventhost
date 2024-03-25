@@ -6,7 +6,7 @@
     export let data: PageData;
 </script>
 
-<body data-theme="wintry">
+<body data-theme="wintry" class="w-screen h-screen overflow-auto">
   <header class=" top-0 w-full z-50 snap-start">
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
       <div class="flex flex-wrap justify-between items-center max-w-full">

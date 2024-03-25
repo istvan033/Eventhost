@@ -16,7 +16,7 @@
     let dateStringA = customDateFormatA(currentDateA);
 </script>
 
-<body class="w-screen bg-gray-900">
+<body class="w-screen h-screen bg-gray-900 overflow-auto">
   <header class=" top-0 z-50 snap-start">
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
       <div class="flex flex-wrap justify-between items-center">
@@ -71,7 +71,7 @@
       </div>
     </nav>
   </header>
-  <div class="container mt-12 mx-auto ">
+  <div class="container mt-12 mx-auto">
     <!-- Section: Design Block -->
     <section class="text-center md:text-left">
       <h2 class="mb-16 text-center text-3xl font-bold">Events</h2>
