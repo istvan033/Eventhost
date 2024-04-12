@@ -45,9 +45,7 @@
           <li>
             <a href="/aboutus" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
           </li>
-          <li>
-            <a href="/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-          </li>
+
           {#if $page.data.session?.user}
             <li>
               <a href="/events" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Events</a>
@@ -76,6 +74,8 @@
         <div class="p-10 max-w-sm mx-auto justify-center space-y-4">
           <p class="h6 text-s">Frontend Developer:</p>
           <h3 class="h3">Pásztor István</h3>
+          <a class="h6 text-s" href="">pasztoristvan62@gmail.com</a>
+
           <article>
             <p>
               <!-- cspell:disable -->
@@ -94,9 +94,12 @@
         <header>
           <img src="https://i.pinimg.com/originals/94/f0/65/94f0653d30bd368e5dfe492f0f60e01e.gif" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
         </header>
+
         <div class="p-10 max-w-sm mx-auto justify-center space-y-4">
           <p class="h6 text-s">Backend developer:</p>
           <h3 class="h3" data-toc-ignore>Takács Dániel</h3>
+          <a class="h6 text-s" href=""> dani.takacs2002@gmail.com </a>
+
           <article>
             <p>
               <!-- cspell:disable -->
