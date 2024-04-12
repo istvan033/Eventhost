@@ -5,15 +5,6 @@
     
     export let data: PageData;
 
-    let dateCreatedAt = data.event?.createdAt as unknown as string
-    function customDateFormatA(date: Date): string {
-      const year = date.getFullYear();
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const day = date.getDate().toString().padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    }
-    let currentDateA = new Date(dateCreatedAt);
-    let dateStringA = customDateFormatA(currentDateA);
 </script>
 
 <body class="w-screen h-screen bg-gray-900 overflow-auto">

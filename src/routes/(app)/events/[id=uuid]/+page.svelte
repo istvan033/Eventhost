@@ -4,6 +4,7 @@
     import { signIn, signOut } from "@auth/sveltekit/client";
     
     export let data: PageData;
+    
     let dateStartsAt = data.event?.startsAt as unknown as string
     function customDateFormatA(date: Date): string {
       const year = date.getFullYear();

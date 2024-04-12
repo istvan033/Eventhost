@@ -7,18 +7,18 @@ import { client } from '@/services/edgedb';
 
 const schema = z
   .object({
-    country: z.string(),
-    zipCode: z.string(),
-    city: z.string(),
-    address: z.string(),
+    country: z.string().min(1),
+    zipCode: z.string().min(1),
+    city: z.string().min(1),
+    address: z.string().min(1),
     addressDetail: z.string(),
 
-    title: z.string(),
+    title: z.string().min(1),
     description: z.string(),
     startsAt: z.date(),
     endsAt: z.date(),
-    startsAtHour: z.string(),
-    placeName: z.string(),
+    startsAtHour: z.string().min(1),
+    placeName: z.string().min(1),
     emailValidation: z.string(),
   })
   .refine(data => data.startsAt < data.endsAt, {
@@ -41,7 +41,7 @@ export const load = (async ({locals, params}) => {
     }))
     .run(client);
 
-  const idMatched = organizer.id == params.id
+  const idMatched = organizer?.id == params.id
 
   if(organizer && idMatched){
     return {organizer}
