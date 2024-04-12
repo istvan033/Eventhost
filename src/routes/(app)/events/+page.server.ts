@@ -35,6 +35,8 @@ export const load = (async ({ locals }: RequestEvent) => {
           placeName: true,
           startsAt: true,
           endsAt: true,
+          description: true,
+          createdAt: true,
           organizer: {firstName: true, lastName: true},
           emailValidation: true,
           filter: e.op(event.emailValidation, '=', result)

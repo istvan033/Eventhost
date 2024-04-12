@@ -45,9 +45,7 @@
           <li>
             <a href="/aboutus" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
           </li>
-          <li>
-            <a href="/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-          </li>
+
           {#if $page.data.session?.user}
             <li>
               <a href="/events" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Events</a>
@@ -62,7 +60,8 @@
   </nav>
 </header>
 
-<div class="flex flex-col items-center mt-12">
+<body class="w-screen h-fit pb-60 ">
+<div class="flex flex-col items-center mb-4 pt-12">
   <h2 class="text-2xl font-bold">Eventhost Team</h2>
 </div>
 
@@ -70,11 +69,13 @@
     <div class="card border-2 border-surface-900 max-w-7xl max-h-fit variant-glass-surface mt-10 mx-auto rounded-3xl  mb-8">
       <a class="card card-hover overflow-hidden" href="https://github.com/istvan033">
         <header>
-          <img src="src/routes/(app)/image/profil.jpg" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
+          <img src="https://media1.tenor.com/m/t7_iTN0iYekAAAAd/sad-sad-cat.gif" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
         </header>
         <div class="p-10 max-w-sm mx-auto justify-center space-y-4">
-          <p class="h6 text-s">Backend Developer:</p>
+          <p class="h6 text-s">Frontend Developer:</p>
           <h3 class="h3">Pásztor István</h3>
+          <a class="h6 text-s" href="">pasztoristvan62@gmail.com</a>
+
           <article>
             <p>
               <!-- cspell:disable -->
@@ -91,11 +92,14 @@
     <div class="card border-2 border-surface-900 max-w-7xl max-h-fit variant-glass-surface mt-10 mx-auto rounded-3xl  mb-8">
       <a class="card card-hover overflow-hidden" href="https:/github.com/danieltakacs1">
         <header>
-          <img src="src/routes/(app)/image/profil2.jpg" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
+          <img src="https://i.pinimg.com/originals/94/f0/65/94f0653d30bd368e5dfe492f0f60e01e.gif" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
         </header>
+
         <div class="p-10 max-w-sm mx-auto justify-center space-y-4">
-          <p class="h6 text-s">Frontend developer:</p>
+          <p class="h6 text-s">Backend developer:</p>
           <h3 class="h3" data-toc-ignore>Takács Dániel</h3>
+          <a class="h6 text-s" href=""> dani.takacs2002@gmail.com </a>
+
           <article>
             <p>
               <!-- cspell:disable -->
@@ -112,10 +116,10 @@
     <div class="card border-2 border-surface-900 max-w-7xl max-h-fit variant-glass-surface mt-10 mx-auto rounded-3xl  mb-8">
       <a class="card card-hover overflow-hidden" href="https:/github.com/danieltakacs1">
         <header>
-          <img src="src/routes/(app)/image/profil3.jpg" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
+          <img src="https://i.pinimg.com/originals/56/a6/14/56a614261d423da1825452363174c685.gif" class="p-10 max-w-sm justify-center rounded-full" alt="kep" />
         </header>
         <div class="p-10 max-w-sm mx-auto justify-center space-y-4">
-          <p class="h6 text-s">Designe , Documentation</p>
+          <p class="h6 text-s">Asztali alkalmazás:</p>
           <h3 class="h3" data-toc-ignore>Szeri Bendegúz</h3>
           <article>
             <p>
@@ -131,3 +135,4 @@
     </div>
 
   </div>
+</body>
