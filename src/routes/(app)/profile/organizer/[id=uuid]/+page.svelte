@@ -58,46 +58,50 @@
     <section class="flex items-center justify-center min-h-screen  backdrop-blur">
       <div class="min-h-full w-screen bg-gray-900 sm:p-12">
         <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
-          <h1 class="text-2xl font-bold mb-8 text-center">{data.organizer.firstName} {data.organizer.lastName}</h1>
+          <h1 class="text-2xl font-bold mb-8 text-center">{data.organizer?.firstName} {data.organizer?.lastName}</h1>
 
 
 
           <div class="relative z-0 w-full mb-5">
             <div class="relative z-0 w-full mb-5">
               <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                <p>{data.organizer.phone}</p>
+                <p>{data.organizer?.phone}</p>
               </div>
             </div>
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.organizer.country}</p>
+                  <p>{data.organizer?.country}</p>
                 </div>
               </div>
               <div class="relative z-0 w-full mb-5">
                 <div class="relative z-0 w-full mb-5">
                   <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                    <p>{data.organizer.city}</p>
+                    <p>{data.organizer?.city}</p>
                   </div>
                 </div>
                 <div class="relative z-0 w-full mb-5">
                   <div class="relative z-0 w-full mb-5">
                     <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                      <p>{data.organizer.zipCode}</p>
+                      <p>{data.organizer?.zipCode}</p>
                     </div>
                   </div>
                   <div class="relative z-0 w-full mb-5">
                     <div class="relative z-0 w-full mb-5">
                       <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                        <p>{data.organizer.address}</p>
+                        <p>{data.organizer?.address}</p>
                       </div>
                     </div>
                     <div class="relative z-0 w-full mb-5">
                       <div class="relative z-0 w-full mb-5">
                         <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                          <p>{data.organizer.addressDetail}</p>
+                          <p>{data.organizer?.addressDetail}</p>
                         </div>
                       </div>
+                    </div>
+
+                    <div class="relative z-0 w-full">
+                      <a href="/profile/organizer/{data.organizer?.id}/update" class="px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow bg-gray-600 hover:bg-gray-100 hover:text-black hover:shadow-lg focus:outline-none block w-full text-center">Update Profile</a>
                     </div>
 
 

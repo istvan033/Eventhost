@@ -58,52 +58,51 @@
     <section class="flex items-center justify-center min-h-screen  backdrop-blur">
       <div class="min-h-full w-screen bg-gray-900 sm:p-12">
         <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
-          <h1 class="text-2xl font-bold mb-8 text-center">{data.user.firstName} {data.user.lastName}</h1>
+          <h1 class="text-2xl font-bold mb-8 text-center">{data.user?.firstName} {data.user?.lastName}</h1>
 
 
 
           <div class="relative z-0 w-full mb-5">
             <div class="relative z-0 w-full mb-5">
               <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                <p>{data.user.phone}</p>
+                <p>{data.user?.phone}</p>
               </div>
             </div>
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.user.country}</p>
+                  <p>{data.user?.country}</p>
                 </div>
               </div>
               <div class="relative z-0 w-full mb-5">
                 <div class="relative z-0 w-full mb-5">
                   <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                    <p>{data.user.city}</p>
+                    <p>{data.user?.city}</p>
                   </div>
                 </div>
                 <div class="relative z-0 w-full mb-5">
                   <div class="relative z-0 w-full mb-5">
                     <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                      <p>{data.user.zipCode}</p>
+                      <p>{data.user?.zipCode}</p>
                     </div>
                   </div>
                   <div class="relative z-0 w-full mb-5">
                     <div class="relative z-0 w-full mb-5">
                       <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                        <p>{data.user.address}</p>
+                        <p>{data.user?.address}</p>
                       </div>
                     </div>
                     <div class="relative z-0 w-full mb-5">
                       <div class="relative z-0 w-full mb-5">
                         <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                          <p>{data.user.addressDetail}</p>
+                          <p>{data.user?.addressDetail}</p>
                         </div>
                       </div>
                     </div>
 
-
-
-
-
+                    <div class="relative z-0 w-full">
+                      <a href="/profile/organizer/{data.user?.id}/update" class="px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow bg-gray-600 hover:bg-gray-100 hover:text-black hover:shadow-lg focus:outline-none block w-full text-center">Update Profile</a>
+                    </div>
 
                   </div>
                 </div>

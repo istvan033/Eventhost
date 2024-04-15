@@ -84,44 +84,44 @@
     <section class="flex items-center justify-center min-h-screen  backdrop-blur">
       <div class="min-h-full w-screen bg-gray-900 sm:p-12">
         <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
-          <h1 class="text-2xl font-bold mb-8 text-center">{data.event.title}</h1>
+          <h1 class="text-2xl font-bold mb-8 text-center">{data.event?.title}</h1>
 
 
 
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.placeName}</p>
+                  <p>{data.event?.placeName}</p>
                 </div>
             </div>
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.country}</p>
+                  <p>{data.event?.country}</p>
                 </div>
             </div>
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.city}</p>
+                  <p>{data.event?.city}</p>
                 </div>
             </div>
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.zipCode}</p>
+                  <p>{data.event?.zipCode}</p>
                 </div>
             </div>
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.address}</p>
+                  <p>{data.event?.address}</p>
                 </div>
             </div>
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.addressDetail}</p>
+                  <p>{data.event?.addressDetail}</p>
                 </div>
               </div>
             </div>
@@ -143,16 +143,22 @@
             <div class="relative z-0 w-full mb-5">
               <div class="relative z-0 w-full mb-5">
                 <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.startsAtHour}</p>
+                  <p>{data.event?.startsAtHour}</p>
                 </div>
               </div>
             </div>
 
-              <div class="relative z-0 w-full mb-5">
-                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-                  <p>{data.event.description}</p>
-                </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                <p>{data.event?.description}</p>
               </div>
+            </div>
+
+            <div class="relative z-0 w-full">
+              {#if data.organizer}
+                <a href="/events/{data.event?.id}/update" class="px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow bg-gray-600 hover:bg-gray-100 hover:text-black hover:shadow-lg focus:outline-none block w-full text-center">Update Event</a>
+              {/if}
+            </div>
 
 
 
