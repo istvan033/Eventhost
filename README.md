@@ -47,5 +47,6 @@ PowerPoint bemutató:
 [Eventhost bemutató.pptx](https://github.com/istvan033/Eventhost/files/14746890/Eventhost.bemutato.pptx)
 [Eventhost bemutató.pdf](https://github.com/istvan033/Eventhost/files/14746895/Eventhost.bemutato.pdf)
 Dokumentáció:
-[Eventhost fullos.docx](https://github.com/istvan033/Eventhost/files/14995075/Eventhost.fullos.docx)
+
+[Eventhost fullos.docx](https://github.com/istvan033/Eventhost/files/15009174/Eventhost.fullos.docx)
 
