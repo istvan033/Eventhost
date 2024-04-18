@@ -45,12 +45,18 @@ You can preview the production build with `npm run preview`.
 
 PowerPoint bemutató:
 
-[Eventhost bemutató.pptx](https://github.com/istvan033/Eventhost/files/14746890/Eventhost.bemutato.pptx)
-[Eventhost bemutató.pdf](https://github.com/istvan033/Eventhost/files/14746895/Eventhost.bemutato.pdf)
+[Eventhost diavetítés.pdf](https://github.com/istvan033/Eventhost/files/15029812/Eventhost.diavetites.pdf)
+
+[Eventhost diavetítés.pptx](https://github.com/istvan033/Eventhost/files/15029810/Eventhost.diavetites.pptx)
+
 
 Dokumentáció:
 
-[Eventhost fullos.docx](https://github.com/istvan033/Eventhost/files/15009174/Eventhost.fullos.docx)
+[Eventhost dokumentáció.docx](https://github.com/istvan033/Eventhost/files/15029807/Eventhost.dokumentacio.docx)
+
+[Eventhost dokumentáció.pdf](https://github.com/istvan033/Eventhost/files/15029808/Eventhost.dokumentacio.pdf)
+
+
 
 Statikus teszt:
 
