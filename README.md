@@ -2,6 +2,7 @@
 
 Everything you need to build a Svelte project, powered by [`svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
+
 ## Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
@@ -14,10 +15,10 @@ npm create svelte@latest
 npm create svelte@latest my-app
 ```
 
-# Developing
+
+##Developing
 
 Once you've created a project and installed dependencies with `pnpm install` (or `npm install` or `yarn`), start a development server:
-
 
 You need to generate the query 
 ```bash
@@ -27,17 +28,15 @@ Then start the database with
 ```bash
 #For the first time
 edgedb project init
-
 #After
-Edgedb watch
+edgedb watch
 ```
 
-# start the server and open the app in a new browser tab
+start the server and open the app in a new browser tab
 ```bash
 pnpm run dev -- --open
 
 ```
-
 
 
 To create a production version of your app:
