@@ -1,50 +1,51 @@
-# create-svelte
+<h1 align="center" id="title">Eventhost</h1>
 
-Everything you need to build a Svelte project, powered by [`svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<p align="center"><img src="https://socialify.git.ci/istvan033/eventhost/image?font=Bitter&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Circuit%20Board&amp;theme=Auto" alt="project-image"></p>
 
+<p id="description">Streamlined event management for businesses. Simplified scheduling and organizing of events. An optimized platform for efficient corporate event management.</p>
 
-## Creating a project
+<h2>Project Video</h2>
 
-If you're seeing this, you've probably already done this step. Congrats!
+[Event Creating](https://youtu.be/7FdZsDDF4iE)
+  
+<h2>🧐 Features</h2>
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Here're some of the project's best features:
 
-# create a new project in my-app
-npm create svelte@latest my-app
+*   Google authentication
+*   Creating Company
+*   Creating company events
+*   News management
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Install all package</p>
+
+```
+pnpm install 
 ```
 
+<p>2. Generate edgedb query</p>
 
-## Developing
-
-Once you've created a project and installed dependencies with `pnpm install` (or `npm install` or `yarn`), start a development server:
-
-You need to generate the query 
-```bash
-pnpm run generate
 ```
-Then start the database with 
-```bash
-#For the first time
-edgedb project init
-#After
+pnpm run generate 
+```
+
+<p>3. Run database</p>
+
+```
 edgedb watch
 ```
 
-Start the server and open the app in a new browser tab
-```bash
-pnpm run dev -- --open
-```
+  
+  
+<h2>💻 Built with</h2>
 
+Technologies used in the project:
 
-To create a production version of your app:
-
-```bash
-npm run build
-tickets/a1df3f3c-9b22-11ee-9e4f-c77bc934f422
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+*   Edgedb
+*   Svelte
+*   SvelteKit
+*   Vite
+*   Tailwind
+*   EsLint
