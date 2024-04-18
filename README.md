@@ -16,7 +16,7 @@ npm create svelte@latest my-app
 ```
 
 
-##Developing
+## Developing
 
 Once you've created a project and installed dependencies with `pnpm install` (or `npm install` or `yarn`), start a development server:
 
@@ -32,10 +32,9 @@ edgedb project init
 edgedb watch
 ```
 
-start the server and open the app in a new browser tab
+Start the server and open the app in a new browser tab
 ```bash
 pnpm run dev -- --open
-
 ```
 
 
