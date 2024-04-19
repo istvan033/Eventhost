@@ -7,6 +7,19 @@
 <h2>Project Video</h2>
 
 [Event Creating](https://youtu.be/7FdZsDDF4iE)
+
+h2>PowerPoint bemutató:</h2>
+
+[Eventhost diavetítés.pdf](https://github.com/istvan033/Eventhost/files/15029812/Eventhost.diavetites.pdf)
+
+[Eventhost diavetítés.pptx](https://github.com/istvan033/Eventhost/files/15029810/Eventhost.diavetites.pptx)
+
+
+h2>Dokumentáció:</h2>
+
+[Eventhost dokumentáció.docx](https://github.com/istvan033/Eventhost/files/15029807/Eventhost.dokumentacio.docx)
+
+[Eventhost dokumentáció.pdf](https://github.com/istvan033/Eventhost/files/15029808/Eventhost.dokumentacio.pdf)
   
 <h2>🧐 Features</h2>
 
@@ -49,3 +62,8 @@ Technologies used in the project:
 *   Vite
 *   Tailwind
 *   EsLint
+
+
+
+
+
