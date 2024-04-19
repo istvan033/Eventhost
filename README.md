@@ -65,7 +65,7 @@ pnpm run dev
 <p>4.2. Run the desktop app</p>
 
 ```
-pnpm run tauri
+pnpm tauri dev
 ```
   
   
