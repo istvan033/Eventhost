@@ -15,7 +15,7 @@
 [Eventhost diavetítés.pptx](https://github.com/istvan033/Eventhost/files/15029810/Eventhost.diavetites.pptx)
 
 
-h2>Dokumentáció:</h2>
+<h2>Dokumentáció:</h2>
 
 [Eventhost dokumentáció.docx](https://github.com/istvan033/Eventhost/files/15029807/Eventhost.dokumentacio.docx)
 
