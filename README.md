@@ -8,7 +8,7 @@
 
 [Event Creating](https://youtu.be/7FdZsDDF4iE)
 
-h2>PowerPoint bemutató:</h2>
+<h2>PowerPoint bemutató:</h2>
 
 [Eventhost diavetítés.pdf](https://github.com/istvan033/Eventhost/files/15029812/Eventhost.diavetites.pdf)
 
