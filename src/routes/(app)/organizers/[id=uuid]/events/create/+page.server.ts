@@ -32,6 +32,8 @@ export const load = (async ({locals, params}) => {
 
   const sessionEmail = session?.user?.email;
   const sessionEmailString = sessionEmail as string;
+  const afterAt = sessionEmail?.split('@')[1];
+  const result: string = afterAt as string;
 
   const organizer = await e
     .select(e.Organizer, () => ({
@@ -44,10 +46,16 @@ export const load = (async ({locals, params}) => {
   const idMatched = organizer?.id == params.id
 
   if(organizer && idMatched){
-    return {organizer}
+    return {organizer,company: await e
+      .select(e.Company, () => ({  
+        id: true,
+        name: true,
+        filter_single: {companyEmail: e.str(result)}
+      }))
+      .run(client),}
   }
   else{
-    throw redirect(307, "/events")
+    throw redirect(307, '/');
   }
   
  

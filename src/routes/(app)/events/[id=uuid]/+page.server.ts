@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import e from '@/edgeql-js';
 import { client } from '$lib/server/edgedb';
 
@@ -37,11 +37,18 @@ export const load: PageServerLoad = async ({ params, locals }) => {
     return {
       event,
       organizer,
-      user
+      user,
+      company: await e
+        .select(e.Company, () => ({  
+          id: true,
+          name: true,
+          filter_single: {companyEmail: e.str(result)}
+        }))
+        .run(client),
     };
   }
   else if(!event || !emailMatched) {
-    throw error(404);
+    throw redirect(307, '/');
   }
 
 };
