@@ -3,6 +3,8 @@ node_modules
 /build
 /.svelte-kit
 /package
+/functions
+
 .env
 .env.*
 !.env.example
@@ -13,5 +15,6 @@ vite.config.ts.timestamp-*
 .vscode
 # EdgeDB TypeScript bindings
 src/edgeql-js
+
 
 
