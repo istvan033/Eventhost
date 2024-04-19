@@ -14,7 +14,7 @@ vite.config.ts.timestamp-*
 . idea
 .vscode
 # EdgeDB TypeScript bindings
-src/edgeql-js
+
 
 
 
