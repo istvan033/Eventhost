@@ -8,19 +8,26 @@
 
 [Event Creating](https://youtu.be/7FdZsDDF4iE)
 
+
 <h2>PowerPoint bemutató:</h2>
 
-[Eventhost diavetítés.pdf](https://github.com/istvan033/Eventhost/files/15029812/Eventhost.diavetites.pdf)
+[Eventhost PowerPoint.pdf](https://github.com/istvan033/Eventhost/files/15029812/Eventhost.diavetites.pdf)
 
-[Eventhost diavetítés.pptx](https://github.com/istvan033/Eventhost/files/15029810/Eventhost.diavetites.pptx)
+[Eventhost PowerPoint.pptx](https://github.com/istvan033/Eventhost/files/15029810/Eventhost.diavetites.pptx)
 
 
 <h2>Dokumentáció:</h2>
 
-[Eventhost dokumentáció.docx](https://github.com/istvan033/Eventhost/files/15029807/Eventhost.dokumentacio.docx)
+[Eventhost documentation.docx](https://github.com/istvan033/Eventhost/files/15029807/Eventhost.dokumentacio.docx)
 
-[Eventhost dokumentáció.pdf](https://github.com/istvan033/Eventhost/files/15029808/Eventhost.dokumentacio.pdf)
-  
+[Eventhost documentation.pdf](https://github.com/istvan033/Eventhost/files/15029808/Eventhost.dokumentacio.pdf)
+
+
+<h2>Statikus teszt:</h2>
+
+[Eventhost Static test.xlsx](https://github.com/istvan033/Eventhost/files/15028946/EventhostStatikteszt.xlsx)
+
+
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
@@ -50,6 +57,16 @@ pnpm run generate
 edgedb watch
 ```
 
+<p>4.1 Run the test server</p>
+
+```
+pnpm run dev
+```
+<p>4.2. Run the desktop app</p>
+
+```
+pnpm run tauri
+```
   
   
 <h2>💻 Built with</h2>
