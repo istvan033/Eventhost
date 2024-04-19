@@ -56,7 +56,9 @@ module default {
 
   type Company extending HasAddress, HasTimestamps {
     required name: str;
-    required companyEmail: str;
+    required companyEmail: str{
+      constraint exclusive;
+    };
     required euTaxNumber: str;
     required organizerCode: str;
     website: str;

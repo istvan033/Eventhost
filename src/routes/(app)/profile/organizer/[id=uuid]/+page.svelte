@@ -6,7 +6,7 @@
     export let data: PageData;
 </script>
 
-<body data-theme="wintry">
+<body data-theme="wintry" class="w-screen h-screen overflow-y-auto">
   <header class=" top-0 w-full z-50 snap-start">
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
       <div class="flex flex-wrap justify-between items-center max-w-full">
@@ -40,9 +40,7 @@
             <li>
               <a href="/aboutus" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
             </li>
-            <li>
-              <a href="/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-            </li>
+
             {#if $page.data.session?.user}
               <li>
                 <a href="/events" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Events</a>
@@ -50,21 +48,72 @@
               <li>
                 <a href="/home" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Home</a>
               </li>
+              <li>
+                <a href="/company/{data.company?.id}/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">{data.company.name}</a>
+              </li>
             {/if}
           </ul>
         </div>
       </div>
     </nav>
   </header>
-  <div class="card border-2 border-surface-900 max-w-7xl max-h-fit variant-glass-surface mt-28 mx-auto rounded-3xl">
-    <div class="overflow-hidden">
-      <img src="/src/routes/tickets/huh_cat.jpg" class="max-h-60 w-full rounded-t-3xl" alt="kep"/>
-    </div>
-    
-    <div class="p-10 max-w-sm mx-auto justify-center">
-        
-        <p>{data.organizer?.email}</p>
-        <a href="/profile/organizer/{data.organizer?.id}/update">Update Profile</a>
+  <div class=" inset-0 bg-cover bg-center filter bg-gray-900">
+    <section class="flex items-center justify-center min-h-screen  backdrop-blur">
+      <div class="min-h-full w-screen bg-gray-900 sm:p-12">
+        <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
+          <h1 class="text-2xl font-bold mb-8 text-center">{data.organizer?.firstName} {data.organizer?.lastName}</h1>
 
-    </div>
+
+
+          <div class="relative z-0 w-full mb-5">
+            <div class="relative z-0 w-full mb-5">
+              <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                <p>{data.organizer?.phone}</p>
+              </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.organizer?.country}</p>
+                </div>
+              </div>
+              <div class="relative z-0 w-full mb-5">
+                <div class="relative z-0 w-full mb-5">
+                  <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                    <p>{data.organizer?.city}</p>
+                  </div>
+                </div>
+                <div class="relative z-0 w-full mb-5">
+                  <div class="relative z-0 w-full mb-5">
+                    <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                      <p>{data.organizer?.zipCode}</p>
+                    </div>
+                  </div>
+                  <div class="relative z-0 w-full mb-5">
+                    <div class="relative z-0 w-full mb-5">
+                      <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                        <p>{data.organizer?.address}</p>
+                      </div>
+                    </div>
+                    <div class="relative z-0 w-full mb-5">
+                      <div class="relative z-0 w-full mb-5">
+                        <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                          <p>{data.organizer?.addressDetail}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="relative z-0 w-full">
+                      <a href="/profile/organizer/{data.organizer?.id}/update" class="px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow bg-gray-600 hover:bg-gray-100 hover:text-black hover:shadow-lg focus:outline-none block w-full text-center">Update Profile</a>
+                    </div>
+
+
+
+
+
+
+                  </div>
+                </div>
+    </section>
+  </div>
   </body>

@@ -8,7 +8,9 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-
+.idea
+. idea
+.vscode
 # EdgeDB TypeScript bindings
 src/edgeql-js
 

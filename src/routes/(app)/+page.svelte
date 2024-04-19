@@ -59,15 +59,16 @@
             <li>
               <a href="/aboutus" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
             </li>
-            <li>
-              <a href="/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-            </li>
+
             {#if $page.data.session?.user}
               <li>
                 <a href="/events" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Events</a>
               </li>
               <li>
                 <a href="/home" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+              </li>
+              <li>
+                <a href="/company/{data.company?.id}/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">{data.company.name}</a>
               </li>
             {/if}
           </ul>
@@ -82,7 +83,7 @@
       <div class="text-center max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 relative z-10 ">
         <div class="mr-auto place-self-center lg:col-span-7">
           <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-8xl dark:text-white ">Eventhost</h1>
-          <p class="mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-4xl dark:text-gray-400">We made company life great again</p>
+          <p class="mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-4xl dark:text-gray-100">We made company life great again</p>
         </div>
       </div>
     </section>
@@ -92,7 +93,7 @@
     <section class="flex items-center justify-center min-h-screen w-screen bg-white dark:bg-gray-900">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
         <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Miért éri meg minket választani?</h2>
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Why should you choose us?</h2>
           <p class="mb-4">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
           <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
         </div>
@@ -108,52 +109,31 @@
     <section class="flex items-center justify-center min-h-screen w-screen bg-white dark:bg-gray-900">
       <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
         <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Lehetőségek az oladon</h2>
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Opportunities on the site.</h2>
           <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
             <li>
-              Az lehetőség a céges élet nyomonkövtésére!
+              The opportunity for tracking corporate life!
             </li>
             <li>
-              Egyszerű esemény szervezés
+              Simple event organization.
             </li>
             <li>
-              Lehetőség a munkafolyamat követésére
+              Opportunity for tracking work processes.
             </li>
             <li>
-              At least 10 characters (and up to 100 characters)
+              Elevate your event with our expertise: seamless organization, innovative ideas, and impeccable execution.
             </li>
             <li>
-              At least one lowercase character
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </li>
             <li>
-              Inclusion of at least one special character, e.g., ! @ #
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </li>
             <li>
-              At least 10 characters (and up to 100 characters)
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </li>
             <li>
-              At least one lowercase character
-            </li>
-            <li>
-              Inclusion of at least one special character, e.g., ! @ #
-            </li>
-            <li>
-              At least 10 characters (and up to 100 characters)
-            </li>
-            <li>
-              At least one lowercase character
-            </li>
-            <li>
-              Inclusion of at least one special character, e.g., ! @ #
-            </li>
-            <li>
-              At least 10 characters (and up to 100 characters)
-            </li>
-            <li>
-              At least one lowercase character
-            </li>
-            <li>
-              Inclusion of at least one special character, e.g., ! @ # 
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </li>
           </ul>
         </div>
@@ -176,9 +156,7 @@
                   Your story starts with us.
                 </h1>
                 <p class="mt-4 text-lg text-blueGray-200">
-                  This is a simple example of a Landing Page you can build using
-                  Notus JS. It features multiple CSS components based on the
-                  Tailwind CSS design system.
+                  Let us turn your vision into reality: passion, precision, and a commitment to exceeding expectations.
                 </p>
               </div>
             </div>
@@ -194,7 +172,7 @@
         <div class="relative inline-flex justify-center group">
           <div class="absolute transition-all duration-10000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-250 animate-tilt">
           </div>
-          <a href="/" title="Get quote now" class="relative inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">Vedd fel velünk a kapcsolatot</a>
+          <a href="./aboutus/" title="Get quote now" class="relative inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">Get in touch with us</a>
         </div>
       </div>
 

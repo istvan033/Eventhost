@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from './$types';
-import { error, fail } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 import e from '@/edgeql-js';
@@ -60,7 +60,7 @@ export const load = (async ({ params, locals }) => {
     }
 
     else if (!company || !emailMatched || !organizerEmailMatched) {
-        throw error(404);
+      throw redirect(307, "/");
     }
 
 }) satisfies PageServerLoad;

@@ -4,9 +4,30 @@
     import { signIn, signOut } from "@auth/sveltekit/client";
     
     export let data: PageData;
+    
+    let dateStartsAt = data.event?.startsAt as unknown as string
+    function customDateFormatA(date: Date): string {
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+    let currentDateA = new Date(dateStartsAt);
+    let dateStringA = customDateFormatA(currentDateA);
+
+    let dateEndssAt = data.event?.endsAt as unknown as string
+    function customDateFormatB(date: Date): string {
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+    let currentDateB = new Date(dateEndssAt);
+    let dateStringB = customDateFormatB(currentDateB);
 </script>
 
-<body data-theme="wintry">
+<body data-theme="wintry" class="w-screen h-screen overflow-auto">
+
   <header class=" top-0 w-full z-50 snap-start">
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
       <div class="flex flex-wrap justify-between items-center max-w-full">
@@ -45,9 +66,7 @@
             <li>
               <a href="/aboutus" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
             </li>
-            <li>
-              <a href="/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-            </li>
+
             {#if $page.data.session?.user}
               <li>
                 <a href="/events" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Events</a>
@@ -55,26 +74,103 @@
               <li>
                 <a href="/home" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Home</a>
               </li>
+              <li>
+                <a href="/company/{data.company?.id}/" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">{data.company.name}</a>
+              </li>
             {/if}
           </ul>
         </div>
       </div>
     </nav>
   </header>
-  <div class="card border-2 border-surface-900 max-w-7xl max-h-fit variant-glass-surface mt-28 mx-auto rounded-3xl">
-    <div class="overflow-hidden">
-      <img src="/src/routes/tickets/huh_cat.jpg" class="max-h-60 w-full rounded-t-3xl" alt="kep"/>
-    </div>
-    
-    <div class="p-10 max-w-sm mx-auto justify-center">
-  
-      <p class="text-center mb-4 text-3xl mt-0">{data.event?.title}</p>
-      <span class="block">{data.event?.placeName}</span>
-      <span class="block">{data.event?.startsAt}</span>
-      <span class="block">{data.event?.endsAt}</span>
-      {#if data.organizer}
-        <a href="/events/{data.event?.id}/update">Update Event</a>
-      {/if}
+  <div class=" inset-0 bg-cover bg-center filter bg-gray-900">
+    <section class="flex items-center justify-center min-h-screen  backdrop-blur">
+      <div class="min-h-full w-screen bg-gray-900 sm:p-12">
+        <div class="mx-auto max-w-md px-6 py-12 dark:bg-gray-800 border-0 shadow-lg sm:rounded-3xl">
+          <h1 class="text-2xl font-bold mb-8 text-center">{data.event?.title}</h1>
 
-    </div>
+
+
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.event?.placeName}</p>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.event?.country}</p>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.event?.city}</p>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.event?.zipCode}</p>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.event?.address}</p>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.event?.addressDetail}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{dateStringA}</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{dateStringB}</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+              <div class="relative z-0 w-full mb-5">
+                <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                  <p>{data.event?.startsAtHour}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-0 w-full mb-5">
+              <div class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                <p>{data.event?.description}</p>
+              </div>
+            </div>
+
+            <div class="relative z-0 w-full">
+              {#if data.organizer}
+                <a href="/events/{data.event?.id}/update" class="px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow bg-gray-600 hover:bg-gray-100 hover:text-black hover:shadow-lg focus:outline-none block w-full text-center">Update Event</a>
+              {/if}
+            </div>
+
+
+
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
   </body>

@@ -7,18 +7,18 @@ import { client } from '@/services/edgedb';
 
 const schema = z
   .object({
-    country: z.string(),
-    zipCode: z.string(),
-    city: z.string(),
-    address: z.string(),
+    country: z.string().min(1),
+    zipCode: z.string().min(1),
+    city: z.string().min(1),
+    address: z.string().min(1),
     addressDetail: z.string(),
 
-    title: z.string(),
+    title: z.string().min(1),
     description: z.string(),
     startsAt: z.date(),
     endsAt: z.date(),
-    startsAtHour: z.string(),
-    placeName: z.string(),
+    startsAtHour: z.string().min(1),
+    placeName: z.string().min(1),
     emailValidation: z.string(),
   })
   .refine(data => data.startsAt < data.endsAt, {
@@ -32,6 +32,8 @@ export const load = (async ({locals, params}) => {
 
   const sessionEmail = session?.user?.email;
   const sessionEmailString = sessionEmail as string;
+  const afterAt = sessionEmail?.split('@')[1];
+  const result: string = afterAt as string;
 
   const organizer = await e
     .select(e.Organizer, () => ({
@@ -41,13 +43,19 @@ export const load = (async ({locals, params}) => {
     }))
     .run(client);
 
-  const idMatched = organizer.id == params.id
+  const idMatched = organizer?.id == params.id
 
   if(organizer && idMatched){
-    return {organizer}
+    return {organizer,company: await e
+      .select(e.Company, () => ({  
+        id: true,
+        name: true,
+        filter_single: {companyEmail: e.str(result)}
+      }))
+      .run(client),}
   }
   else{
-    throw redirect(307, "/events")
+    throw redirect(307, '/');
   }
   
  

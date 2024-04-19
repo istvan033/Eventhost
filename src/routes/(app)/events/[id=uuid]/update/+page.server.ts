@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from './$types';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 import e from '@/edgeql-js';
@@ -31,6 +31,8 @@ export const load = (async ({ params, locals }) => {
 
   const session = await locals.auth();
   const sessionEmail = session?.user?.email;
+  const afterAt = sessionEmail?.split('@')[1];
+  const afterAtString: string = afterAt as string;
   const searchSessionEmailString = sessionEmail as string;
 
   const organizer = e.select(e.Organizer, () => ({
@@ -47,17 +49,22 @@ export const load = (async ({ params, locals }) => {
     }))
     .run(client);
 
-  const afterAt = sessionEmail?.split('@')[1];
-  const afterAtString: string = afterAt as string;
+  
   const emailMatched = event?.emailValidation.includes(afterAtString)
 
   const pageRequirementsPassed = emailMatched && organizer;
 
   if(pageRequirementsPassed){
-    return { event, organizer };
+    return { event, organizer,company: await e
+      .select(e.Company, () => ({  
+        id: true,
+        name: true,
+        filter_single: {companyEmail: e.str(afterAtString)}
+      }))
+      .run(client), };
   }
   else {
-    throw error(404)
+    throw redirect(307, '/');
   }
 
 }) satisfies PageServerLoad;

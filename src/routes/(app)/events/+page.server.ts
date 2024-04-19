@@ -42,6 +42,13 @@ export const load = (async ({ locals }: RequestEvent) => {
           filter: e.op(event.emailValidation, '=', result)
         }))
         .run(client),
+        company: await e
+        .select(e.Company, () => ({  
+          id: true,
+          name: true,
+          filter_single: {companyEmail: e.str(result)}
+        }))
+        .run(client),
       organizer,
       user
     };
